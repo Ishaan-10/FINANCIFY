@@ -8,6 +8,8 @@ const LocalStrategy = require('passport-local');
 const session = require('express-session');
 const User = require('./Models/User');
 const MongoStore = require('connect-mongo');
+const authRoutes = require('./Routes/authRoutes');
+const { urlencoded } = require('express');
 
 const db = mongoose.connection;
 mongoose.connect(process.env.DATABASE_KEY, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -43,7 +45,6 @@ const sessionConfig = {
 }
 
 
-
 app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -57,6 +58,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use('/', basicRoutes);
+app.use('/auth', authRoutes);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, (req, res) => {
