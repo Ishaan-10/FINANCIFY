@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { useLocation, Route, Switch } from "react-router-dom";
 
+import Sidebar from "components/Sidebar/Sidebar";
 import AdminNavbar from "components/Navbars/AdminNavbar";
 import Footer from "components/Footer/Footer";
-import Sidebar from "components/Sidebar/Sidebar";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
