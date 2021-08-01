@@ -15,6 +15,7 @@ const transactions = require('./Routes/transactions');
 const goals = require('./Routes/transactions');
 const incomeSource = require('./Routes/transactions');
 const recurring = require('./Routes/transactions');
+var cors = require('cors')
 
 app.use(morgan('tiny'));
 const db = mongoose.connection;
@@ -47,7 +48,7 @@ const sessionConfig = {
     maxAge: 1000 * 60 * 60 * 24 * 7
   }
 }
-
+app.use(cors());
 app.use(urlencoded({extended:true}))
 app.use(express.json())
 app.use(session(sessionConfig));

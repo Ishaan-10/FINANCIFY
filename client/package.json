@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.2",
+    "axios": "^0.21.1",
     "bootstrap": "4.6.0",
     "chartist": "0.10.1",
     "gulp": "4.0.2",
