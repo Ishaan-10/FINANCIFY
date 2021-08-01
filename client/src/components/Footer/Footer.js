@@ -29,11 +29,6 @@ class Footer extends Component {
                 </a>
               </li>
             </ul>
-            <p className="copyright text-center">
-              © {new Date().getFullYear()}{" "}
-              <a href="http://www.creative-tim.com">Creative Tim</a>, made with
-              love for a better web
-            </p>
           </nav>
         </Container>
       </footer>
