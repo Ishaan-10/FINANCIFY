@@ -1,7 +1,7 @@
 import React from 'react'
-import { Container, FormWrap, Icon, FormContent, Form, FormInput, FormH1, FormLabel, FormButton, Text } from './SigninElements'
+import { Container, FormWrap, Icon, FormContent, Form, FormInput, FormH1, FormLabel, FormButton, Text } from './SignupElements'
 
-const Signin = () => {
+const Signup = () => {
   return (
     <>
       <Container>
@@ -9,13 +9,15 @@ const Signin = () => {
           <Icon to='/'>FinTech</Icon>
           <FormContent>
             <Form action='#'>
-              <FormH1>Sign in to your account</FormH1>
+              <FormH1>Sign up for your account</FormH1>
+              <FormLabel htmlFor='for'>Your Name</FormLabel>
+                <FormInput htmlFor='name' required />
               <FormLabel htmlFor='for'>Email</FormLabel>
                 <FormInput htmlFor='email' required />
               <FormLabel htmlFor='for'>Password</FormLabel>
                 <FormInput htmlFor='password' required />
               <FormButton type='submit'>Continue</FormButton>
-              <Text>Forgot password</Text>
+              <Text>Already have an account?</Text>
             </Form>
           </FormContent>
         </FormWrap>
@@ -24,4 +26,4 @@ const Signin = () => {
   )
 }
 
-export default Signin
+export default Signup
