@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/login',(req,res)=>{
+    console.log(req.body)
     console.log("login route")
 })
 router.get('/register',(req,res)=>{

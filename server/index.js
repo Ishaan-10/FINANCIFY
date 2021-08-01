@@ -44,13 +44,14 @@ const sessionConfig = {
   }
 }
 
-
+app.use(urlencoded())
+app.use(express.json())
 app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.use(new LocalStrategy({
-  usernameField: 'username'
+  usernameField: 'email'
 }, User.authenticate()));
 
 
