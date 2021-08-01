@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, FormWrap, Icon, FormContent, Form, FormInput, FormH1, FormLabel, FormButton, Text } from './SigninElements'
 
-const SignIn = () => {
+const Signin = () => {
   return (
     <>
       <Container>
@@ -24,4 +24,4 @@ const SignIn = () => {
   )
 }
 
-export default SignIn
+export default Signin
