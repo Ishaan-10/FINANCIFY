@@ -17,21 +17,21 @@ const dashboardRoutes = [
   },
   {
     path: "/user",
-    name: "Manage Wallet",
+    name: "User Profile",
     icon: "nc-icon nc-circle-09",
     component: UserProfile,
     layout: "/admin",
   },
   {
     path: "/table",
-    name: "Manage Subs",
+    name: "Manage Wallet",
     icon: "nc-icon nc-notes",
     component: TableList,
     layout: "/admin",
   },
   {
     path: "/typography",
-    name: "Goals",
+    name: "Manage Subs",
     icon: "nc-icon nc-paper-2",
     component: Typography,
     layout: "/admin",
@@ -45,7 +45,7 @@ const dashboardRoutes = [
   },
   {
     path: "/maps",
-    name: "User Profile",
+    name: "Goals",
     icon: "nc-icon nc-pin-3",
     component: Maps,
     layout: "/admin",
