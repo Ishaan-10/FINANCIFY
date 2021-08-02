@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
+import { logout } from "API";
+import { useHistory } from "react-router";
 
 import routes from "routes.js";
 
@@ -17,6 +19,24 @@ function Header() {
     };
     document.body.appendChild(node);
   };
+  const history = useHistory();
+  const [loading,setLoading]=React.useState(false);
+  
+  const logoutUser =async(e)=>{
+    setLoading(true);
+    e.preventDefault()
+    await logout().then(res=>{
+      console.log("logged out")
+      setLoading(false)
+      console.log(res.data.redirectUrl)
+      history.push("/home")
+    }).catch(e=>{
+      setLoading(false)
+      console.log(e.message)
+    })
+    
+  }
+
 
   const getBrandText = () => {
     for (let i = 0; i < routes.length; i++) {
@@ -158,7 +178,7 @@ function Header() {
               <Nav.Link
                 className="m-0"
                 href="#pablo"
-                onClick={(e) => e.preventDefault()}
+                onClick={logoutUser}
               >
                 <span className="no-icon">Log out</span>
               </Nav.Link>

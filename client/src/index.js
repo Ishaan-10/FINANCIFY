@@ -1,4 +1,4 @@
-import React from "react";
+import React,{createContext} from "react";
 import ReactDOM from "react-dom";
 
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
@@ -14,17 +14,14 @@ import Home from './pages';
 import SigninPage from './pages/signin';
 import SignupPage from './pages/signup';
 
-
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
       <Route path='/home' component={Home} exact />
       <Route path='/signin' component={SigninPage} exact />
-
       <Route path='/signup' component={SignupPage} exact />
-      <Route path="/auth" />
-      <Redirect from="/" to="/admin/dashboard" />
+      <Redirect from="/" to="/home" />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const {isLoggedIn} = require('../middlewares')
 
 router.get('/',async(req,res)=>{
-
+    console.log(req.user)
+    res.send("logged in")
 })
 
 // update

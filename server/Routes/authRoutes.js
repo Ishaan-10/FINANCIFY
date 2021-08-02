@@ -27,13 +27,22 @@ router.post('/register', async (req, res, next) => {
 
     req.login(registeredUser, err => {
         if (err) { return next(err); }
-        next();
-
+        
     });
+    res.send(req.user)
 
 
 });
 
+router.get('/logout',async(req,res)=>{
+    try{
+        req.logout();
+        res.json({"message":"Succesfully Logged out","redirectUrl":"/"})
+    }catch(e){
+        res.status(400).json({"error":e.message})
+    }
+
+})
 
 
 module.exports = router;
