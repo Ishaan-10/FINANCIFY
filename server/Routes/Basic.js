@@ -3,6 +3,7 @@ const router = express.Router();
 
 
 router.get('/',(req,res)=>{
+    console.log(req.user)
     console.log("Server works")
 })
 

@@ -1,41 +1,80 @@
-import React from 'react'
-import { Container, FormWrap, Icon, FormContent, Form, FormInput, FormH1, FormLabel, FormButton, Text } from './SigninElements'
-import { signIn } from 'API';
+import React from "react";
+import {
+  Container,
+  FormWrap,
+  Icon,
+  FormContent,
+  Form,
+  FormInput,
+  FormH1,
+  FormLabel,
+  FormButton,
+  Text,
+} from "./SigninElements";
+import { signIn } from "API";
+import { useHistory } from "react-router";
+import { Spinner } from "reactstrap";
 
 const Signin = () => {
+  const history = useHistory();
+  const [email, setEmail] = React.useState();
+  const [password, setPassword] = React.useState();
+  const [loading, setLoading] = React.useState(false);
 
-  const [email,setEmail]=React.useState();
-  const [password,setPassword]=React.useState();
+  const formSubmitHandler = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+    await signIn({ email, password })
+      .then((res) => {
+        setLoading(false);
+        history.push("/admin/dashboard");
+      })
+      .catch((e) => {
+        setLoading(false);
+      });
+  };
 
-  const formSubmitHandler= async (e)=>{
-    e.preventDefault()
-    await signIn({email,password}).then(res=>{
-      
-    }).catch({
-      
-    })
+  if (loading) {
+    return (
+      <div>
+        <Spinner animation="border" role="status" className="">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    );
+  } else {
+    return (
+      <>
+        {!loading && (
+          <Container>
+            <FormWrap>
+              <Icon to="/">FinTech</Icon>
+              <FormContent>
+                <Form>
+                  <FormH1>Sign in to your account</FormH1>
+                  <FormLabel htmlFor="for">Email</FormLabel>
+                  <FormInput
+                    htmlFor="email"
+                    required
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <FormLabel htmlFor="for">Password</FormLabel>
+                  <FormInput
+                    type="password"
+                    htmlFor="password"
+                    required
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <FormButton onClick={formSubmitHandler}>Continue</FormButton>
+                  {/* <Text>Forgot password</Text> */}
+                </Form>
+              </FormContent>
+            </FormWrap>
+          </Container>
+        )}
+      </>
+    );
   }
+};
 
-  return (
-    <>
-      <Container>
-        <FormWrap>
-          <Icon to='/'>FinTech</Icon>
-          <FormContent>
-            <Form>
-              <FormH1>Sign in to your account</FormH1>
-              <FormLabel htmlFor='for'>Email</FormLabel>
-                <FormInput htmlFor='email' required onChange={(e)=>setEmail(e.target.value)} />
-              <FormLabel htmlFor='for'>Password</FormLabel>
-                <FormInput type="password" htmlFor='password' required onChange={(e)=>setPassword(e.target.value)} />
-              <FormButton onClick={formSubmitHandler}>Continue</FormButton>
-              {/* <Text>Forgot password</Text> */}
-            </Form>
-          </FormContent>
-        </FormWrap>
-      </Container>
-    </>
-  )
-}
-
-export default Signin
+export default Signin;

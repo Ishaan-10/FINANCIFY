@@ -6,4 +6,5 @@ const API = axios.create({
 
 export const signIn = async (data)=>await API.post('/auth/login',data)
 export const signUp = async (data)=>await API.post('/auth/register',data)
+export const logout = async ()=>await API.get('/auth/logout')
 export const test = async ()=>await API.get('/')
