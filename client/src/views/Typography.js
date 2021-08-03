@@ -1,12 +1,15 @@
 import React from "react";
+import TransactionRow from "components/TransactionRow";
 
 // react-bootstrap components
 import {
   Badge,
   Button,
   Card,
+  Form,
   Navbar,
   Nav,
+  Table,
   Container,
   Row,
   Col,
@@ -17,125 +20,78 @@ function Typography() {
     <>
       <Container fluid>
         <Row>
+        <Col md="12">
+            <Card className="strpied-tabled-with-hover">
+              <Card.Header>
+                <Card.Title as="h4">Striped Table with Hover</Card.Title>
+                <p className="card-category">
+                  Here is a subtitle for this table
+                </p>
+              </Card.Header>
+              <Card.Body className="table-full-width table-responsive px-0">
+                <Table className="table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th className="border-0">Serial No.</th>
+                      <th className="border-0">Name</th>
+                      <th className="border-0">Amount</th>
+                      <th className="border-0">Category</th>
+                      <th className="border-0">Mode of Payment</th>
+                      <th className="border-0">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <TransactionRow/>
+                  </tbody>
+                </Table>
+              </Card.Body>
+            </Card>
+          </Col>
           <Col md="12">
             <Card>
               <Card.Header>
-                <Card.Title as="h4">Light Bootstrap Table Heading</Card.Title>
+                <Card.Title as="h4">Add Subscripton</Card.Title>
                 <p className="card-category">
-                  Created using Montserrat Font Family
+                  Simply fill out the form below to keep a track of your subscriptions
                 </p>
               </Card.Header>
-              <Card.Body>
-                <div className="typography-line">
-                  <h1>
-                    <span>Header 1</span>
-                    The Life of Light Bootstrap Dashboard React
-                  </h1>
-                </div>
-                <div className="typography-line">
-                  <h2>
-                    <span>Header 2</span>
-                    The Life of Light Bootstrap Dashboard React
-                  </h2>
-                </div>
-                <div className="typography-line">
-                  <h3>
-                    <span>Header 3</span>
-                    The Life of Light Bootstrap Dashboard React
-                  </h3>
-                </div>
-                <div className="typography-line">
-                  <h4>
-                    <span>Header 4</span>
-                    The Life of Light Bootstrap Dashboard React
-                  </h4>
-                </div>
-                <div className="typography-line">
-                  <h5>
-                    <span>Header 5</span>
-                    The Life of Light Bootstrap Dashboard React
-                  </h5>
-                </div>
-                <div className="typography-line">
-                  <h6>
-                    <span>Header 6</span>
-                    The Life of Light Bootstrap Dashboard React
-                  </h6>
-                </div>
-                <div className="typography-line">
-                  <p>
-                    <span>Paragraph</span>I will be the leader of a company that
-                    ends up being worth billions of dollars, because I got the
-                    answers. I understand culture. I am the nucleus. I think
-                    that’s a responsibility that I have, to push possibilities,
-                    to show people, this is the level that things could be at.
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <span>Quote</span>
-                  <blockquote>
-                    <p className="blockquote blockquote-primary">
-                      "I will be the leader of a company that ends up being
-                      worth billions of dollars, because I got the answers. I
-                      understand culture. I am the nucleus. I think that’s a
-                      responsibility that I have, to push possibilities, to show
-                      people, this is the level that things could be at."{" "}
-                      <br></br>
-                      <br></br>
-                      <small>- Noaa</small>
-                    </p>
-                  </blockquote>
-                </div>
-                <div className="typography-line">
-                  <span>Muted Text</span>
-                  <p className="text-muted">
-                    I will be the leader of a company that ends up being worth
-                    billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <span>Primary Text</span>
-                  <p className="text-primary">
-                    I will be the leader of a company that ends up being worth
-                    billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <span>Info Text</span>
-                  <p className="text-info">
-                    I will be the leader of a company that ends up being worth
-                    billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <span>Success Text</span>
-                  <p className="text-success">
-                    I will be the leader of a company that ends up being worth
-                    billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <span>Warning Text</span>
-                  <p className="text-warning">
-                    I will be the leader of a company that ends up being worth
-                    billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <span>Danger Text</span>
-                  <p className="text-danger">
-                    I will be the leader of a company that ends up being worth
-                    billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div className="typography-line">
-                  <h2>
-                    <span>Small Tag</span>
-                    Header with small subtitle <br></br>
-                    <small>Use "small" tag for the headers</small>
-                  </h2>
-                </div>
-              </Card.Body>
+              <Form>
+                  <Form.Group>
+                    <Form.Label>Name</Form.Label>
+                    <Form.Row>
+                      <Col>
+                        <Form.Control placeholder="Name of the Transaction"></Form.Control>
+                      </Col>
+                    </Form.Row>
+                  </Form.Group>
+                  <Form.Row>
+                    <Form.Group as={Col} controlId="formGridNum">
+                      <Form.Label>Amount</Form.Label>
+                      <Form.Control
+                        type="number"
+                        placeholder="Enter the Amount"
+                      />
+                    </Form.Group>
+                  </Form.Row>
+                  <Form.Row>
+                    <Form.Group as={Col} controlId="formGridCat">
+                      <Form.Label>Category</Form.Label>
+                      <Form.Control as="select">
+                        <option>Choose...</option>
+                        <option>Condom</option>
+                        <option>Porn</option>
+                      </Form.Control>
+                    </Form.Group>
+                    <Form.Group as={Col} controlId="formGridCityPay">
+                      <Form.Label>Mode of Payment</Form.Label>
+                      <Form.Control />
+                    </Form.Group>
+                  </Form.Row>
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                  <br />
+                </Form>
             </Card>
           </Col>
         </Row>
