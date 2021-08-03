@@ -18,10 +18,10 @@ const userSchema = new mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
         ref: "Wallet"
     },
-    goals: {
+    goals: [{
         type: mongoose.SchemaTypes.ObjectId,
         ref: "Goals"
-    },
+    }],
     accountCreatedOn: {
         type: Date,
         default: Date.now

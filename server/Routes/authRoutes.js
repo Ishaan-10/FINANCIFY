@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require("../Models/User");
+const Wallet = require("../Models/Wallet");
 const passport = require('passport');
 
 router.post('/login', (req, res, next) => {
@@ -10,8 +11,7 @@ router.post('/login', (req, res, next) => {
         else {
             req.logIn(user, (err) => {
                 if (err) throw err;
-                res.send("Successfully Authenticated");
-                console.log(req.user);
+                res.send(req.user);
             });
         }
     })(req, res, next);
@@ -24,13 +24,17 @@ router.post('/register', async (req, res, next) => {
     const user = new User({ email, name });
 
     const registeredUser = await User.register(user, password);
+    const newWallet = new Wallet();
+    registeredUser.wallet = newWallet;
+    newWallet.save()
+    registeredUser.save()
+    console.log(registeredUser)
 
     req.login(registeredUser, err => {
         if (err) { return next(err); }
         
     });
     res.send(req.user)
-
 
 });
 

@@ -26,6 +26,6 @@ const goalsSchema = new mongoose.Schema({
     }
 })
 
-const Goals = new mongoose.Model("Goals",goalsSchema);
+const Goals = new mongoose.model("Goals",goalsSchema);
 
 module.exports = Goals;
