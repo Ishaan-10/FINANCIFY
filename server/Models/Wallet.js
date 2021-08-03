@@ -4,6 +4,7 @@ const walletSchema = new mongoose.Schema({
 
     amountSpent:{
         type:Number,
+        default:0
     },
 
     monthlyIncome:[{
@@ -56,5 +57,5 @@ const walletSchema = new mongoose.Schema({
     }]
 })
 
-const Wallet = new mongoose.Model("Wallet",walletSchema);
+const Wallet = new mongoose.model("Wallet",walletSchema);
 module.exports= Wallet;
