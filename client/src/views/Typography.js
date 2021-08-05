@@ -53,32 +53,45 @@ function Typography() {
                 </p>
               </Card.Header>
               <Form>
-                  <Form.Group>
-                    <Form.Label>Subscription For</Form.Label>
-                    <Form.Row>
-                      <Col>
-                        <Form.Control placeholder="Name of the Subscription"></Form.Control>
-                      </Col>
-                    </Form.Row>
-                  </Form.Group>
-                  <Form.Row>
-                    <Form.Group as={Col} controlId="formGridNum">
-                      <Form.Label>Amount</Form.Label>
-                      <Form.Control
-                        type="number"
-                        placeholder="Enter the Amount"
-                      />
-                    </Form.Group>
-                  </Form.Row>
-                  <Form.Row>
-                    <Form.Group as={Col} controlId="formGridCityPay">
-                      <Form.Label>Repeat Duration</Form.Label>
-                      <Form.Control />
-                    </Form.Group>
-                  </Form.Row>
+              <Row>
+                    <Col className="pl-4" md="12">
+                      <Form.Group>
+                        <label>Subscription For</label>
+                        <Form.Control
+                          defaultValue="PORNHUB"
+                          placeholder="Name of the subscription"
+                          type="text"
+                        ></Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col className="pl-4" md="6">
+                      <Form.Group>
+                        <label>Amount</label>
+                        <Form.Control
+                          defaultValue="69696969"
+                          placeholder="Amount"
+                          type="number"
+                        ></Form.Control>
+                      </Form.Group>
+                    </Col>
+                    <Col className="pl-1" md="6">
+                      <Form.Group>
+                        <label>Repeat Duration</label>
+                        <Form.Control
+                          defaultValue="Lifetime hai bruh"
+                          placeholder="Duration"
+                          type="text"
+                        ></Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                  <div className="d-grid gap-2 pl-2">
                   <Button variant="primary" type="submit">
                     Add Subscription
                   </Button>
+                  </div>
                   <br />
                 </Form>
             </Card>

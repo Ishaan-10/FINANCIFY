@@ -26,33 +26,13 @@ function User() {
               <Card.Body>
                 <Form>
                   <Row>
-                    <Col className="pr-1" md="5">
-                      <Form.Group>
-                        <label>Company (disabled)</label>
-                        <Form.Control
-                          defaultValue="Creative Code Inc."
-                          disabled
-                          placeholder="Company"
-                          type="text"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                    <Col className="px-1" md="3">
-                      <Form.Group>
-                        <label>Username</label>
-                        <Form.Control
-                          defaultValue="michael23"
-                          placeholder="Username"
-                          type="text"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                    <Col className="pl-1" md="4">
+                    <Col className="pl-3" md="12">
                       <Form.Group>
                         <label htmlFor="exampleInputEmail1">
                           Email address
                         </label>
                         <Form.Control
+                          defaultValue="abc@xyz"
                           placeholder="Email"
                           type="email"
                         ></Form.Control>
@@ -82,59 +62,22 @@ function User() {
                     </Col>
                   </Row>
                   <Row>
-                    <Col md="12">
+                    <Col className="pr-1" md="6">
                       <Form.Group>
-                        <label>Address</label>
+                        <label>TOTAL INCOME</label>
                         <Form.Control
-                          defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
-                          placeholder="Home Address"
-                          type="text"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pr-1" md="4">
-                      <Form.Group>
-                        <label>City</label>
-                        <Form.Control
-                          defaultValue="Mike"
-                          placeholder="City"
-                          type="text"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                    <Col className="px-1" md="4">
-                      <Form.Group>
-                        <label>Country</label>
-                        <Form.Control
-                          defaultValue="Andrew"
-                          placeholder="Country"
-                          type="text"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                    <Col className="pl-1" md="4">
-                      <Form.Group>
-                        <label>Postal Code</label>
-                        <Form.Control
-                          placeholder="ZIP Code"
+                          defaultValue="100000"
+                          placeholder="income"
                           type="number"
                         ></Form.Control>
                       </Form.Group>
                     </Col>
-                  </Row>
-                  <Row>
-                    <Col md="12">
+                    <Col className="px-1" md="6">
                       <Form.Group>
-                        <label>About Me</label>
+                        <label>Date at which you get your salary</label>
                         <Form.Control
-                          cols="80"
-                          defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in
-                          that two seat Lambo."
-                          placeholder="Here can be your description"
-                          rows="4"
-                          as="textarea"
+                          placeholder="Date"
+                          type="date"
                         ></Form.Control>
                       </Form.Group>
                     </Col>
@@ -172,13 +115,7 @@ function User() {
                     ></img>
                     <h5 className="title">Mike Andrew</h5>
                   </a>
-                  <p className="description">michael24</p>
                 </div>
-                <p className="description text-center">
-                  "Lamborghini Mercy <br></br>
-                  Your chick she so thirsty <br></br>
-                  I'm in that two seat Lambo"
-                </p>
               </Card.Body>
               <hr></hr>
               <div className="button-container mr-auto ml-auto">
