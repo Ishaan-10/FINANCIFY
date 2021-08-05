@@ -51,28 +51,35 @@ function Maps() {
                 </p>
             </Card.Header>
             <Form>
+            <Row>
+                <Col className="pl-4" md="6">
                   <Form.Group>
-                    <Form.Label>Goal Description</Form.Label>
-                    <Form.Row>
-                      <Col>
-                        <Form.Control placeholder="Put your Goal here"></Form.Control>
-                      </Col>
-                    </Form.Row>
-                  </Form.Group>
-                  <Form.Row>
-                    <Form.Group as={Col} controlId="formGridNum">
-                      <Form.Label>Goal Amount</Form.Label>
+                    <label>Goal Description</label>
                       <Form.Control
-                        type="number"
-                        placeholder="Enter the Amount"
-                      />
+                        defaultValue="kuch bhi"
+                        placeholder="goal"
+                        type="text"
+                      ></Form.Control>
                     </Form.Group>
-                  </Form.Row>
+                </Col>
+                <Col className="pl-1" md="6">
+                  <Form.Group>
+                    <label>Goal Amount</label>
+                    <Form.Control
+                        defaultValue="696969"
+                        placeholder="Amount"
+                        type="number"
+                    ></Form.Control>
+                    </Form.Group>
+                </Col>
+              </Row>
+              <div className="d-grid gap-2 pl-2">
                   <Button variant="primary" type="submit">
                     Add Goal
                   </Button>
-                  <br />
-                </Form>
+              </div>
+              <br />
+            </Form>
             </Card>
           </Col>
         </Row>
