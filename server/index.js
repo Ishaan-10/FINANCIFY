@@ -12,8 +12,8 @@ const MongoStore = require('connect-mongo');
 const authRoutes = require('./Routes/authRoutes');
 const { urlencoded } = require('express');
 const transactions = require('./Routes/transactions');
-const goals = require('./Routes/transactions');
-const incomeSource = require('./Routes/transactions');
+const goals = require('./Routes/goals');
+const incomeSource = require('./Routes/incomeSources');
 const recurring = require('./Routes/recurringPayments');
 var cors = require('cors')
 
@@ -68,7 +68,7 @@ app.use('/', basicRoutes);
 app.use('/auth', authRoutes);
 app.use('/transaction', transactions);
 app.use('/goals', goals);
-app.use('/incomesource', incomeSource);
+app.use('/income', incomeSource);
 app.use('/recurring', recurring);
 
 
