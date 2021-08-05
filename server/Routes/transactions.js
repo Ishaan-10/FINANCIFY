@@ -10,10 +10,10 @@ router.get('/',async(req,res)=>{
     try{
         const {_id}=req.user;
         const userData = await User.findById(_id).populate('wallet')
-        res.json(userData.wallet.transactions)
+        res.json(userData.wallet.transactions,userData.wallet._id)
     }
     catch(e){
-        res.status(200).json({"error":e.message})
+        res.status(400).json({"error":e.message})
     }
 
 })
@@ -35,11 +35,19 @@ router.post('/',async(req,res)=>{
 // delete
 router.delete('/',async(req,res)=>{
 
-
+    const {transaction_id,wallet_id}=req.body;
+    const userWallet = await Wallet.findById(wallet_id);
+    userWallet.transactions.remove(transaction_id)
+    await userWallet.save()
+    console.log(userWallet)
 })
 
 // modify
 router.put('/',async(req,res)=>{
+
+    const {name,category,amount,date,paymentMode,transaction_id,wallet_id}=req.body;
+    const userWallet = await Wallet.findById(wallet_id);
+
 
 })
 

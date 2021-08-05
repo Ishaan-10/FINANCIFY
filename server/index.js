@@ -14,7 +14,7 @@ const { urlencoded } = require('express');
 const transactions = require('./Routes/transactions');
 const goals = require('./Routes/transactions');
 const incomeSource = require('./Routes/transactions');
-const recurring = require('./Routes/transactions');
+const recurring = require('./Routes/recurringPayments');
 var cors = require('cors')
 
 app.use(morgan('tiny'));
