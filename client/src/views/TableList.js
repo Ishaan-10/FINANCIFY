@@ -13,6 +13,8 @@ import {
   Container,
   Row,
   Col,
+  OverlayTrigger,
+  Tooltip
 } from "react-bootstrap";
 
 function TableList() {
@@ -42,6 +44,36 @@ function TableList() {
                   </thead>
                   <tbody>
                     <TransactionRow/>
+                    <td className="td-actions text-right">
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-488980961">
+                                Edit Transaction
+                              </Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="info"
+                            >
+                              <i className="fas fa-edit"></i>
+                            </Button>
+                          </OverlayTrigger>
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-506045838">Remove Transaction</Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="danger"
+                            >
+                              <i className="fas fa-times"></i>
+                            </Button>
+                          </OverlayTrigger>
+                        </td>
                   </tbody>
                 </Table>
               </Card.Body>

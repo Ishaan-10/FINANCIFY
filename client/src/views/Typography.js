@@ -23,10 +23,7 @@ function Typography() {
         <Col md="12">
             <Card className="strpied-tabled-with-hover">
               <Card.Header>
-                <Card.Title as="h4">Striped Table with Hover</Card.Title>
-                <p className="card-category">
-                  Here is a subtitle for this table
-                </p>
+                <Card.Title as="h4">List of your Subscriptions</Card.Title>
               </Card.Header>
               <Card.Body className="table-full-width table-responsive px-0">
                 <Table className="table-hover table-striped">
@@ -35,7 +32,7 @@ function Typography() {
                       <th className="border-0">Serial No.</th>
                       <th className="border-0">Name</th>
                       <th className="border-0">Amount</th>
-                      <th className="border-0">Category</th>
+                      <th className="border-0">Repeat Duration</th>
                       <th className="border-0">Mode of Payment</th>
                       <th className="border-0">Action</th>
                     </tr>
@@ -57,10 +54,10 @@ function Typography() {
               </Card.Header>
               <Form>
                   <Form.Group>
-                    <Form.Label>Name</Form.Label>
+                    <Form.Label>Subscription For</Form.Label>
                     <Form.Row>
                       <Col>
-                        <Form.Control placeholder="Name of the Transaction"></Form.Control>
+                        <Form.Control placeholder="Name of the Subscription"></Form.Control>
                       </Col>
                     </Form.Row>
                   </Form.Group>
@@ -74,21 +71,13 @@ function Typography() {
                     </Form.Group>
                   </Form.Row>
                   <Form.Row>
-                    <Form.Group as={Col} controlId="formGridCat">
-                      <Form.Label>Category</Form.Label>
-                      <Form.Control as="select">
-                        <option>Choose...</option>
-                        <option>Condom</option>
-                        <option>Porn</option>
-                      </Form.Control>
-                    </Form.Group>
                     <Form.Group as={Col} controlId="formGridCityPay">
-                      <Form.Label>Mode of Payment</Form.Label>
+                      <Form.Label>Repeat Duration</Form.Label>
                       <Form.Control />
                     </Form.Group>
                   </Form.Row>
                   <Button variant="primary" type="submit">
-                    Submit
+                    Add Subscription
                   </Button>
                   <br />
                 </Form>
