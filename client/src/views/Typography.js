@@ -1,5 +1,5 @@
-import React from "react";
-import TransactionRow from "components/TransactionRow";
+import React, { useState, useEffect } from "react";
+import SubscriptionRow from "components/SubscriptionRow";
 
 // react-bootstrap components
 import {
@@ -14,13 +14,43 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
+import { getPayment, createPayment, deletePayment, updatePayment } from 'API';
 
 function Typography() {
+  const [data, setData] = useState([]);
+  const [newName, setNewName] = useState("")
+  const [newAmount, setNewAmount] = useState("")
+  const [newRepeatDuration, setNewRepeatDuration] = useState("");
+  const [newDate, setNewDate] = useState("")
+
+  const paymentData = {
+    name: newName, amount: newAmount, repeatDuration: newRepeatDuration, date: newDate
+  }
+
+  const fetchData = async () => {
+    await getPayment().then(res => {
+      console.log(res.data)
+      setData(res.data)
+    }).catch(e => {
+      console.log(e.message)
+    })
+  }
+  const newSubscription = async (e)=> {
+    e.preventDefault()
+    await createPayment(paymentData).then(async res => {
+      console.log(res.data)
+      await fetchData()
+    }).catch(e => console.log(e.message))
+  }
+
+  useEffect(async () => {
+    fetchData()
+  }, [])
   return (
     <>
       <Container fluid>
         <Row>
-        <Col md="12">
+          <Col md="12">
             <Card className="strpied-tabled-with-hover">
               <Card.Header>
                 <Card.Title as="h4">List of your Subscriptions</Card.Title>
@@ -33,12 +63,23 @@ function Typography() {
                       <th className="border-0">Name</th>
                       <th className="border-0">Amount</th>
                       <th className="border-0">Repeat Duration</th>
-                      <th className="border-0">Mode of Payment</th>
+                      <th className="border-0">Date</th>
                       <th className="border-0">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <TransactionRow/>
+                    {data.map((subscription, index) => {
+                      return (
+                        <SubscriptionRow
+                          sNo={index + 1}
+                          name={subscription.name}
+                          amount={subscription.amount}
+                          repeatDuration={subscription.repeatDuration}
+                          date={subscription.date}
+                        />
+                      )
+                    })}
+
                   </tbody>
                 </Table>
               </Card.Body>
@@ -53,47 +94,63 @@ function Typography() {
                 </p>
               </Card.Header>
               <Form>
-              <Row>
-                    <Col className="pl-4" md="12">
-                      <Form.Group>
-                        <label>Subscription For</label>
-                        <Form.Control
-                          defaultValue="PORNHUB"
-                          placeholder="Name of the subscription"
-                          type="text"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pl-4" md="6">
-                      <Form.Group>
-                        <label>Amount</label>
-                        <Form.Control
-                          defaultValue="69696969"
-                          placeholder="Amount"
-                          type="number"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                    <Col className="pl-1" md="6">
-                      <Form.Group>
-                        <label>Repeat Duration</label>
-                        <Form.Control
-                          defaultValue="Lifetime hai bruh"
-                          placeholder="Duration"
-                          type="text"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                  </Row>
-                  <div className="d-grid gap-2 pl-2">
-                  <Button variant="primary" type="submit">
+                <Row>
+                  <Col className="pl-4" md="6">
+                    <Form.Group>
+                      <label>Name of subscription</label>
+                      <Form.Control
+                        placeholder="Name of the subscription"
+                        type="text"
+                        value={newName}
+                        onChange={e => setNewName(e.target.value)}
+                      ></Form.Control>
+                    </Form.Group>
+                  </Col>
+                  <Col className="pl-4" md="5">
+                    <Form.Group>
+                      <label>Date</label>
+                      <Form.Control
+                        placeholder="Date"
+                        type="date"
+                        onChange={e => setNewDate(e.target.valueAsDate)}
+                      ></Form.Control>
+                    </Form.Group>
+                  </Col>
+
+                </Row>
+                <Row>
+                  <Col className="pl-4" md="6">
+                    <Form.Group>
+                      <label>Amount</label>
+                      <Form.Control
+                        placeholder="Amount"
+                        type="number"
+                        value={newAmount}
+                        onChange={e => setNewAmount(e.target.value)}
+                      ></Form.Control>
+                    </Form.Group>
+                  </Col>
+                  <Col className="pl-1" md="5">
+                    <Form.Group>
+                      <label>Repeat Duration</label>
+                      <Form.Control as="select"
+                        onChange={(e) => setNewRepeatDuration(e.target.value)}
+                        required
+                      >
+                        <option>Choose...</option>
+                        <option value="Monthly">Monthly</option>
+                        <option value="Annully">Annully</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </Col>
+                </Row>
+                <div className="d-grid gap-2 pl-2">
+                  <Button variant="success" type="button" onClick={newSubscription}>
                     Add Subscription
                   </Button>
-                  </div>
-                  <br />
-                </Form>
+                </div>
+                <br />
+              </Form>
             </Card>
           </Col>
         </Row>

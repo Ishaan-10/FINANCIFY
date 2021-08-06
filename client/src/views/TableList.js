@@ -27,11 +27,11 @@ function TableList() {
   const [newDate, setNewDate] = useState("");
   const [newPaymentMode, setNewPaymentMode] = useState("");
 
-  const transactionData={
-    name:newName,category:newCategory,amount:newAmount,date:newDate,paymentMode:newPaymentMode
+  const transactionData = {
+    name: newName, category: newCategory, amount: newAmount, date: newDate, paymentMode: newPaymentMode
   }
 
-  const fetchData=async()=>{
+  const fetchData = async () => {
     await getTransaction().then(res => {
       console.log(res.data)
       setData(res.data)
@@ -40,7 +40,7 @@ function TableList() {
     })
   }
 
-  useEffect(async() => {
+  useEffect(async () => {
     fetchData()
   }, [])
 
@@ -57,8 +57,8 @@ function TableList() {
     }).catch(e => console.log(e.message))
   }
 
-  const deleteTrans = async(id) => {
-    const data = {transaction_id:id}
+  const deleteTrans = async (id) => {
+    const data = { transaction_id: id }
     deleteTransaction(data).then(async res => {
       await fetchData()
       console.log(data);
@@ -92,19 +92,19 @@ function TableList() {
                     </tr>
                   </thead>
                   <tbody>
-                    {data.map((transaction,index)=>{
+                    {data.map((transaction, index) => {
                       return (
                         <TransactionRow
-                        key={index}
-                        sNo={index}
-                        name={transaction.name}
-                        amount={transaction.amount}
-                        category={transaction.category}
-                        date={transaction.date}
-                        paymentMode={transaction.paymentMode}
-                        deleteTransaction={deleteTrans}
-                        _id={transaction._id}
-                         />
+                          key={index}
+                          sNo={index}
+                          name={transaction.name}
+                          amount={transaction.amount}
+                          category={transaction.category}
+                          date={transaction.date}
+                          paymentMode={transaction.paymentMode}
+                          deleteTransaction={deleteTrans}
+                          _id={transaction._id}
+                        />
                       )
                     })
 
@@ -174,22 +174,22 @@ function TableList() {
                   </Form.Control>
                 </Form.Group>
                 <Form.Group>
-                        <label>Date</label>
-                        <Form.Control
-                          placeholder="Date"
-                          type="date"
-                          onChange={e=>setNewDate(e.target.valueAsDate)}
-                        ></Form.Control>
-                      </Form.Group>
+                  <label>Date</label>
+                  <Form.Control
+                    placeholder="Date"
+                    type="date"
+                    onChange={e => setNewDate(e.target.valueAsDate)}
+                  ></Form.Control>
+                </Form.Group>
               </Form.Row>
-            <Button variant="primary" type="submit" onClick={newTransaction}>
-              Submit
-            </Button>
-            <br />
+              <Button variant="primary" type="submit" onClick={newTransaction}>
+                Submit
+              </Button>
+              <br />
             </Form>
           </Col>
         </Row>
-    </Container>
+      </Container>
     </>
   );
 }
