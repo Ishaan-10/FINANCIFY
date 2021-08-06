@@ -56,7 +56,7 @@ const walletSchema = new mongoose.Schema({
         },
         paymentMode:{
             type:String,
-            enum:["credit card","debit card","cash","bitcoin","net banking","UPI","digital wallets"]
+            enum:["credit card","debit card","cash","bitcoin","net banking","UPI","digital wallets","others"]
         }
     }]
 })

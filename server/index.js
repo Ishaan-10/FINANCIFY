@@ -16,7 +16,11 @@ const goals = require('./Routes/goals');
 const incomeSource = require('./Routes/incomeSources');
 const recurring = require('./Routes/recurringPayments');
 var cors = require('cors')
+app.use(cors({
+  origin:"http://localhost:3000",
+  credentials:true
 
+}));
 app.use(morgan('tiny'));
 const db = mongoose.connection;
 mongoose.connect(process.env.DATABASE_KEY, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -48,7 +52,7 @@ const sessionConfig = {
     maxAge: 1000 * 60 * 60 * 24 * 7
   }
 }
-app.use(cors());
+
 app.use(urlencoded({extended:true}))
 app.use(express.json())
 app.use(session(sessionConfig));

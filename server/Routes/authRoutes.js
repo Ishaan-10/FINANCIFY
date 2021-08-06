@@ -7,11 +7,11 @@ const passport = require('passport');
 router.post('/login', (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
         if (err) throw err;
-        if (!user) res.send("No User Exists");
+        if (!user) res.status(400).json({message:"No User Exists"});
         else {
             req.logIn(user, (err) => {
                 if (err) throw err;
-                res.send(req.user);
+                res.status(200).json(req.user);
             });
         }
     })(req, res, next);
@@ -34,7 +34,7 @@ router.post('/register', async (req, res, next) => {
         if (err) { return next(err); }
         
     });
-    res.send(req.user)
+    res.json(req.user)
 
 });
 

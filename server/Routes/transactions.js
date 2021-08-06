@@ -10,7 +10,7 @@ router.get('/',async(req,res)=>{
     try{
         const {_id}=req.user;
         const userData = await User.findById(_id).populate('wallet')
-        res.json(userData.wallet.transactions,userData.wallet._id)
+        res.status(200).json(userData.wallet.transactions)
     }
     catch(e){
         res.status(400).json({"error":e.message})
@@ -23,7 +23,7 @@ router.post('/',async(req,res)=>{
 
     const {name,category,amount,date,paymentMode}=req.body;
     const newTransaction = {name,category,amount,date,paymentMode};
-    const {_id}=req.body;
+    const {_id}=req.user;
     const userData = await User.findById(_id).populate('wallet')
     const userWallet = await Wallet.findById(userData.wallet._id);
     userWallet.transactions.push(newTransaction)
@@ -35,11 +35,22 @@ router.post('/',async(req,res)=>{
 // delete
 router.delete('/',async(req,res)=>{
 
-    const {transaction_id,wallet_id}=req.body;
-    const userWallet = await Wallet.findById(wallet_id);
-    userWallet.transactions.remove(transaction_id)
-    await userWallet.save()
+    try{
+
+    const {transaction_id}=req.body;
+    const {_id}=req.user;
+    const userData = await User.findById(_id).populate('wallet')
+    const userWallet = await Wallet.findById(userData.wallet._id);
+    userWallet.transactions = userWallet.transactions.filter(transaction=>{
+        return transaction._id !==transaction_id;
+    })
     console.log(userWallet)
+    await userWallet.save()
+    res.status(200).json({"message":"successfully deleted"})
+
+    }catch(e){
+        res.status(400).json({"error":e.message})
+    }
 })
 
 // modify
