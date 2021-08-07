@@ -9,36 +9,26 @@ import { Badge,
   Navbar,
   Nav,
   Table,
+  ProgressBar,
   Container,
   Row,
   Col, } from "react-bootstrap";
 
 function Maps() {
+  const percentage = 73
   return (
     <>
       <Container fluid>
         <Row>
         <Col md="12">
-            <Card className="strpied-tabled-with-hover">
+            <Card>
               <Card.Header>
-                <Card.Title as="h4">List of all the goals</Card.Title>
+                <Card.Title as="h4">Goal Progress</Card.Title>
               </Card.Header>
-              <Card.Body className="table-full-width table-responsive px-0">
-                <Table className="table-hover table-striped">
-                  <thead>
-                    <tr>
-                      <th className="border-0">Serial No.</th>
-                      <th className="border-0">Goal</th>
-                      <th className="border-0">Amount</th>
-                      <th className="border-0">Deadline</th>
-                      <th className="border-0">Mode of Payment</th>
-                      <th className="border-0">COmpleted</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <TransactionRow/>
-                  </tbody>
-                </Table>
+              <Card.Body>
+              <div className="progressBar">
+                <ProgressBar now={percentage} label={`${percentage}% completed`} />
+              </div>
               </Card.Body>
             </Card>
           </Col>
@@ -56,8 +46,8 @@ function Maps() {
                   <Form.Group>
                     <label>Goal Description</label>
                       <Form.Control
-                        defaultValue="kuch bhi"
-                        placeholder="goal"
+                        defaultValue="Save For a Home"
+                        placeholder="Goal"
                         type="text"
                       ></Form.Control>
                     </Form.Group>
@@ -66,15 +56,47 @@ function Maps() {
                   <Form.Group>
                     <label>Goal Amount</label>
                     <Form.Control
-                        defaultValue="696969"
+                        defaultValue="1000000"
                         placeholder="Amount"
                         type="number"
                     ></Form.Control>
                     </Form.Group>
                 </Col>
               </Row>
+              <Row>
+                <Col className="pl-4" md="6">
+                  <Form.Group>
+                    <label>Date Started</label>
+                      <Form.Control
+                        placeholder="Start Time"
+                        type="date"
+                      ></Form.Control>
+                    </Form.Group>
+                </Col>
+                <Col className="pl-1" md="6">
+                  <Form.Group>
+                    <label>Deadline</label>
+                    <Form.Control
+                        placeholder="Date"
+                        type="date"
+                    ></Form.Control>
+                    </Form.Group>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="pl-4" md="12">
+                  <Form.Group>
+                    <label>How will you complete it?</label>
+                      <Form.Control
+                        defaultValue="Saving in Fixed Deposists"
+                        placeholder="Completion"
+                        type="text"
+                      ></Form.Control>
+                    </Form.Group>
+                </Col>
+              </Row>
               <div className="d-grid gap-2 pl-2">
-                  <Button variant="primary" type="submit">
+                  <Button className="btn-fill pull-right" variant="primary" type="submit">
                     Add Goal
                   </Button>
               </div>

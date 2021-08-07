@@ -149,7 +149,7 @@ function User() {
           <Col md="8">
             <Card>
               <Card.Header>
-                <Card.Title as="h4">Income Details</Card.Title>
+                <Card.Title as="h4">Income Details </Card.Title>
               </Card.Header>
               <Card.Body>
                 <Form>
