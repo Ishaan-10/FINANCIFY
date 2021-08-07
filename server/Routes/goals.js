@@ -1,24 +1,65 @@
 const express = require('express');
 const router = express.Router();
-const {isLoggedIn} = require('../middlewares')
+const { isLoggedIn } = require('../middlewares')
+const Goal = require('../Models/Goals')
+const User = require('../Models/User')
 
-router.get('/',async(req,res)=>{
-    console.log(req.user)
-    res.send("logged in")
+router.get('/', async (req, res) => {
+    try {
+        const { _id } = req.user;
+        const userData = await User.findById(_id).populate('goals');
+        res.status(200).json(userData.goals);
+    }
+    catch (e) {
+        res.status(400).json({ "error": e.message })
+    }
 })
 
-// update
-router.post('/',async(req,res)=>{
-    
+// create
+router.post('/newgoal', async (req, res) => {
+    const { goal, targetAmount, currentAmount, endDate, completed } = req.body;
+    const newGoal = new Goal({ goal, targetAmount, currentAmount, endDate, completed });
+    const { _id } = req.user;
+    const userData = await User.findById(_id);
+    userData.goals.push(newGoal);
+    await newGoal.save();
+    await userData.save();
+    console.log(userData);
+    res.send(newGoal);
+
+
 })
 
 // delete
-router.delete('/',async(req,res)=>{
+router.delete('/deletegoal', async (req, res) => {
+
+    try {
+        const { _id } = req.user;
+        const { goals_id } = req.body;
+        await User.findByIdAndUpdate(_id, { $pull: { goals: goals_id } });
+        await Goal.findByIdAndDelete(goals_id);
+        res.status(200).json({ "message": "successfully deleted" })
+
+    } catch (e) {
+        res.status(400).json({ "error": e.message })
+    }
 
 })
 
-// modify
-router.put('/',async(req,res)=>{
+// update
+router.put('/updategoal', async (req, res) => {
+    try {
+        const { goals_id } = req.body;
+        const { goal, targetAmount, currentAmount, endDate, completed } = req.body;
+        const updateGoals = await Goal.findByIdAndUpdate(goals_id, { goal, targetAmount, currentAmount, endDate, completed });
+        await updateGoals.save();
+
+        res.status(200).json({ "message": "successfully updated" })
+
+    } catch (e) {
+        res.status(400).json({ "error": e.message })
+    }
+
 
 })
 
