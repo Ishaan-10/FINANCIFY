@@ -61,27 +61,6 @@ function User() {
                       </Form.Group>
                     </Col>
                   </Row>
-                  <Row>
-                    <Col className="pr-1" md="6">
-                      <Form.Group>
-                        <label>TOTAL INCOME</label>
-                        <Form.Control
-                          defaultValue="100000"
-                          placeholder="income"
-                          type="number"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                    <Col className="px-1" md="6">
-                      <Form.Group>
-                        <label>Date at which you get your salary</label>
-                        <Form.Control
-                          placeholder="Date"
-                          type="date"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                  </Row>
                   <Button
                     className="btn-fill pull-right"
                     type="submit"
@@ -154,42 +133,6 @@ function User() {
               <Card.Body>
                 <Form>
                   <Row>
-                    <Col className="pl-3" md="12">
-                      <Form.Group>
-                        <label htmlFor="exampleInputEmail1">
-                          Email address
-                        </label>
-                        <Form.Control
-                          defaultValue="abc@xyz"
-                          placeholder="Email"
-                          type="email"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pr-1" md="6">
-                      <Form.Group>
-                        <label>First Name</label>
-                        <Form.Control
-                          defaultValue="Mike"
-                          placeholder="Company"
-                          type="text"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                    <Col className="pl-1" md="6">
-                      <Form.Group>
-                        <label>Last Name</label>
-                        <Form.Control
-                          defaultValue="Andrew"
-                          placeholder="Last Name"
-                          type="text"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                  </Row>
-                  <Row>
                     <Col className="pr-1" md="6">
                       <Form.Group>
                         <label>TOTAL INCOME</label>
@@ -210,12 +153,25 @@ function User() {
                       </Form.Group>
                     </Col>
                   </Row>
+                  <Row>
+                    <Col className="pr-1" md="6">
+                      <Form.Group>
+                        <label>Sources of Income</label>
+                        <Form.Control as="select" placeholder="Income Sources" type="dropdown">
+                          <option value="">Income Sources</option>
+                          <option value="Paytm Cashback">Paytm Cashback</option>
+                          <option value="Dadi ne diye">Dadi ne diye</option>
+                          <option value="Others">Others</option>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
                   <Button
                     className="btn-fill pull-right"
                     type="submit"
                     variant="info"
                   >
-                    Update Profile
+                    Update Income
                   </Button>
                   <div className="clearfix"></div>
                 </Form>

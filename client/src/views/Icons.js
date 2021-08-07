@@ -21,10 +21,6 @@ function Icons() {
             <Card>
               <Card.Header>
                 <Card.Title as="h4">Customized Feed for Upcoming Sales</Card.Title>
-                <p className="card-category">
-                  Handcrafted  from{" "}
-                  <a href="#">API</a>
-                </p>
               </Card.Header>
             </Card>
           </Col>
