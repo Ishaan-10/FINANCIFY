@@ -27,6 +27,7 @@ router.post('/', async (req, res) => {
     const userData = await User.findById(_id).populate('wallet')
     const userWallet = await Wallet.findById(userData.wallet._id);
     userWallet.transactions.push(newTransaction)
+    userWallet.amountSpent+=parseInt(amount)
     await userWallet.save()
     res.send(await User.findById(_id).populate('wallet'))
 
