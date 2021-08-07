@@ -6,6 +6,7 @@ import Icons from "views/Icons.js";
 import Maps from "views/Maps.js";
 import Notifications from "views/Notifications.js";
 import Upgrade from "views/Upgrade.js";
+import Scan from "views/Scan";
 
 const dashboardRoutes = [
   {
@@ -61,7 +62,7 @@ const dashboardRoutes = [
     path: "/scan",
     name: "Scan Receipts",
     icon: "nc-icon nc-zoom-split",
-    component: Notifications,
+    component: Scan,
     layout: "/admin",
   }
 ];
