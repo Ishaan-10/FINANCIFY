@@ -1,14 +1,10 @@
 import React from "react";
-import TransactionRow from "components/TransactionRow";
 
 // react-bootstrap components
 import { Badge,
   Button,
   Card,
   Form,
-  Navbar,
-  Nav,
-  Table,
   ProgressBar,
   Container,
   Row,
@@ -25,6 +21,7 @@ function Maps() {
               <Card.Header>
                 <Card.Title as="h4">Goal Progress</Card.Title>
               </Card.Header>
+              
               <Card.Body>
               <div className="progressBar">
                 <ProgressBar now={percentage} label={`${percentage}% completed`} />
