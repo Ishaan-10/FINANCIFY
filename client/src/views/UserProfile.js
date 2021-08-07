@@ -111,7 +111,7 @@ function User() {
                     <img
                       alt="..."
                       className="avatar border-gray"
-                      src={require("assets/img/faces/face-3.jpg").default}
+                      src={require("assets/img/index.png").default}
                     ></img>
                     <h5 className="title">Mike Andrew</h5>
                   </a>
@@ -144,6 +144,82 @@ function User() {
                   <i className="fab fa-google-plus-square"></i>
                 </Button>
               </div>
+            </Card>
+          </Col>
+          <Col md="8">
+            <Card>
+              <Card.Header>
+                <Card.Title as="h4">Income Details</Card.Title>
+              </Card.Header>
+              <Card.Body>
+                <Form>
+                  <Row>
+                    <Col className="pl-3" md="12">
+                      <Form.Group>
+                        <label htmlFor="exampleInputEmail1">
+                          Email address
+                        </label>
+                        <Form.Control
+                          defaultValue="abc@xyz"
+                          placeholder="Email"
+                          type="email"
+                        ></Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col className="pr-1" md="6">
+                      <Form.Group>
+                        <label>First Name</label>
+                        <Form.Control
+                          defaultValue="Mike"
+                          placeholder="Company"
+                          type="text"
+                        ></Form.Control>
+                      </Form.Group>
+                    </Col>
+                    <Col className="pl-1" md="6">
+                      <Form.Group>
+                        <label>Last Name</label>
+                        <Form.Control
+                          defaultValue="Andrew"
+                          placeholder="Last Name"
+                          type="text"
+                        ></Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col className="pr-1" md="6">
+                      <Form.Group>
+                        <label>TOTAL INCOME</label>
+                        <Form.Control
+                          defaultValue="100000"
+                          placeholder="income"
+                          type="number"
+                        ></Form.Control>
+                      </Form.Group>
+                    </Col>
+                    <Col className="px-1" md="6">
+                      <Form.Group>
+                        <label>Date at which you get your salary</label>
+                        <Form.Control
+                          placeholder="Date"
+                          type="date"
+                        ></Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                  <Button
+                    className="btn-fill pull-right"
+                    type="submit"
+                    variant="info"
+                  >
+                    Update Profile
+                  </Button>
+                  <div className="clearfix"></div>
+                </Form>
+              </Card.Body>
             </Card>
           </Col>
         </Row>

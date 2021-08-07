@@ -145,7 +145,7 @@ function Typography() {
                   </Col>
                 </Row>
                 <div className="d-grid gap-2 pl-2">
-                  <Button variant="success" type="button" onClick={newSubscription}>
+                  <Button className="btn-fill pull-right" variant="success" type="button" onClick={newSubscription}>
                     Add Subscription
                   </Button>
                 </div>
