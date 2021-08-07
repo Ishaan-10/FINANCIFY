@@ -57,6 +57,13 @@ const dashboardRoutes = [
     component: UserProfile,
     layout: "/admin",
   },
+  {
+    path: "/scan",
+    name: "Scan Receipts",
+    icon: "nc-icon nc-zoom-split",
+    component: Notifications,
+    layout: "/admin",
+  }
 ];
 
 export default dashboardRoutes;
