@@ -38,8 +38,8 @@ export default function Goals() {
                     <Form.Group>
                       {/* <label>Date Started</label> */}
                       <Form.Control
-                        placeholder="Start Time"
-                        type="date"
+                        placeholder="Date Started"
+                        type="text"
                       ></Form.Control>
                     </Form.Group>
                   </Col>
@@ -47,8 +47,8 @@ export default function Goals() {
                     <Form.Group>
                       {/* <label>Deadline</label> */}
                       <Form.Control
-                        placeholder="Date"
-                        type="date"
+                        placeholder="Deadline"
+                        type="text"
                       ></Form.Control>
                     </Form.Group>
                   </Col>
