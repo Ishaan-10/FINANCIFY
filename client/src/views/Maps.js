@@ -1,5 +1,7 @@
 import React from "react";
 
+import Goals from "../components/Goals";
+
 // react-bootstrap components
 import {
   Badge,
@@ -13,76 +15,13 @@ import {
 } from "react-bootstrap";
 
 function Maps() {
-  const percentage = 73
   return (
     <>
       <Container fluid>
         <Row>
           <Col md="12">
-            <Card>
-              <Card.Header>
-                <Card.Title as="h4">Goal Progress</Card.Title>
-              </Card.Header>
-
-              <Card.Body>
-                <div style={{ display: "flex", justifyContent: "space-between", fontSize:"20px" }}>
-                  <div>
-                    Currently Saved: 45000
-                  </div>
-                  <div>
-                    Goal Amount: 100000
-                  </div>
-                </div>
-                <div className="progressBar" style={{ fontSize:"15px" }}>
-                  <ProgressBar now={percentage} label={`${percentage}% completed`} />
-                </div>
-                {/* <div className="my-2 col-5">
-                  <Form.Control
-                    placeholder="Add Amount"
-                    type="Number"
-                  ></Form.Control>
-                  <Button>Add Amount</Button>
-                </div> */}
-                <Form>
-                <Row>
-                  <Col className="pl-4" md="3">
-                    <Form.Group>
-                      {/* <label>Date Started</label> */}
-                      <Form.Control
-                        placeholder="Start Time"
-                        type="date"
-                      ></Form.Control>
-                    </Form.Group>
-                  </Col>
-                  <Col className="pl-1" md="3">
-                    <Form.Group>
-                      {/* <label>Deadline</label> */}
-                      <Form.Control
-                        placeholder="Date"
-                        type="date"
-                      ></Form.Control>
-                    </Form.Group>
-                  </Col>
-                  <Col className="pl-1" md="3">
-                  <Form.Control
-                      placeholder="Add Amount"
-                      type="Number"
-                    ></Form.Control>
-                  </Col>
-                  <Col className="pl-1" md="3">
-                  <Button className="ml-2 btn btn-fill">Add</Button>
-                  </Col>
-                </Row>
-                </Form>
-                  {/* <Form className="form-inline my-3 float-right">
-                    <Form.Control
-                      placeholder="Add Amount"
-                      type="Number"
-                    ></Form.Control>
-                    <Button className="ml-2 btn btn-fill">Add</Button>
-                  </Form> */}
-              </Card.Body>
-            </Card>
+           <Goals/>
+           <Goals/>
           </Col>
           <Col md="12">
             <Card>

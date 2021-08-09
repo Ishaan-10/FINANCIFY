@@ -1,5 +1,7 @@
 import React from "react";
 
+import News from "../components/News";
+
 // react-bootstrap components
 import {
   Badge,
@@ -20,9 +22,14 @@ function Icons() {
           <Col md="12">
             <Card>
               <Card.Header>
-                <Card.Title as="h4">Customized Feed for Upcoming Sales</Card.Title>
+                <Card.Title as="h3">
+                Customized Feed for Upcoming Sales
+                </Card.Title>
               </Card.Header>
             </Card>
+            <News/>
+            <News/>
+            <News/>
           </Col>
         </Row>
       </Container>
