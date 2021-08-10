@@ -50,9 +50,9 @@ const Footer = () => {
         <SocialMedia>
           <SocialMediaWrap>
             <SocialLogo to='/' onClick={toggleHome}>
-              FinTech
+            Financify
             </SocialLogo>
-            <WebsiteRights>FinTech © {new Date().getFullYear()} All rights reserved.</WebsiteRights>
+            <WebsiteRights>Financify © {new Date().getFullYear()} All rights reserved.</WebsiteRights>
             <SocialIcons>
               <SocialIconLink href='/' target='_blank' arial-label='Facebook'>
                 <FaFacebook />

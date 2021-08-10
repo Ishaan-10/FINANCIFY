@@ -33,4 +33,4 @@ export const deleteIncome = async(data)=> await API.delete('/income',data);
 export const getGoal = async()=>await API.get('/goals')
 export const setGoal = async(data)=>await API.post('/goals',data)
 export const updateGoal = async(data)=>await API.put('/goals',data)
-export const deleteGoal = async(data)=>await API.delete('/goals',data)
+export const deleteGoal = async(data)=>await API.delete('/goals',{data:data})

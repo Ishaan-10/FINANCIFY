@@ -13,6 +13,7 @@ import {
 
 export default function Goals(props) {
   const percentage = parseInt((props.currentAmount) / (props.targetAmount) * 100);
+  const id=props.goals_id;
   return (
     <>
       <Card>
@@ -41,17 +42,13 @@ export default function Goals(props) {
               <Form.Control
                 type="Date"
               ></Form.Control>
-              <Button className="btn btn-fill mx-1">Update</Button>
-              <Button className="btn btn-fill mx-1 btn-danger">Delete</Button>
+              <Button className="btn btn-fill mx-1">Update Goal</Button>
+              <Button className="btn btn-fill mx-1 btn-danger" onClick={()=>props.deleteGoal(id)}>Delete Goal</Button>
           </Form>
-
             <span>Deadline: {props.endDate} </span>
             <br />
             <span>Date set: {props.startDate} </span>
-
-
           </div>
-
         </Card.Body>
       </Card>
     </>

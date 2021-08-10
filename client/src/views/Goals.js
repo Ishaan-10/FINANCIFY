@@ -36,6 +36,12 @@ function Maps() {
     await setGoal(newGoalData).then(res=>console.log(res)).catch(e=>console.log(res))
     fetchGoals()
   }
+  const deleteOneGoal = async (goals_id)=>{
+    console.log("trying to delete")
+    await deleteGoal({goals_id}).then(()=>{
+      fetchGoals()
+    }).catch(e=>console.log(e.message))
+  }
 
   useEffect(() => {
     fetchGoals()
@@ -43,7 +49,6 @@ function Maps() {
   /* { goal: newGoal, targetAmount: newtargetAmount, currentAmount: newcurrentAmount, endDate: newendDate, completed: false } */
 
   return (
-                
     <>
       <Container fluid>
         <Row>
@@ -57,6 +62,8 @@ function Maps() {
               endDate={goal.endDate}
               completed={goal.completed}
               startDate={goal.startDate}
+              goals_id={goal._id}
+              deleteGoal={deleteOneGoal}
               />
             )
           })

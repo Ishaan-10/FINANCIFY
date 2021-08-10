@@ -123,7 +123,11 @@ function Header() {
               <Nav.Link
                 className="m-0"
                 href="#pablo"
-                onClick={(e) => e.preventDefault()}
+                onClick={(e) =>{
+                  e.preventDefault()
+                  history.push("user")
+                }
+                }
               >
                 <span className="no-icon">Account</span>
               </Nav.Link>
