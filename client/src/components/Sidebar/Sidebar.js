@@ -32,7 +32,7 @@ function Sidebar({ color, image, routes }) {
             </div>
           </a>
           <a className="simple-text" href="/">
-            FinTech
+            Financify
           </a>
         </div>
         <Nav>

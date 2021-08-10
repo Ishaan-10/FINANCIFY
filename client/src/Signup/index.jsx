@@ -36,7 +36,7 @@ const Signup = () => {
       )}
       {!loading && <Container>
         <FormWrap>
-          <Icon to='/'>FinTech</Icon>
+          <Icon to='/'>Financify</Icon>
           <FormContent>
             <Form>
               <FormH1>Sign up for your account</FormH1>

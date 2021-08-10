@@ -1,70 +1,56 @@
 import React from 'react'
 
 import {
-    Badge,
-    Button,
-    Card,
-    Form,
-    ProgressBar,
-    Container,
-    Row,
-    Col,
-  } from "react-bootstrap";
+  Badge,
+  Button,
+  Card,
+  Form,
+  ProgressBar,
+  Container,
+  Row,
+  Col,
+} from "react-bootstrap";
 
-export default function Goals() {
-    const percentage = 73;
-    return (
-        <>
-             <Card>
-              <Card.Header>
-                <Card.Title as="h4">Goal Progress</Card.Title>
-              </Card.Header>
+export default function Goals(props) {
+  const percentage = parseInt((props.currentAmount) / (props.targetAmount) * 100);
+  const id=props.goals_id;
+  return (
+    <>
+      <Card>
+        <Card.Header>
+          <Card.Title as="h3">{props.goal}</Card.Title>
+        </Card.Header>
 
-              <Card.Body>
-                <div style={{ display: "flex", justifyContent: "space-between", fontSize:"20px" }}>
-                  <div>
-                    Currently Saved: 45000
-                  </div>
-                  <div>
-                    Goal Amount: 100000
-                  </div>
-                </div>
-                <div className="progressBar" style={{ fontSize:"15px" }}>
-                  <ProgressBar now={percentage} label={`${percentage}% completed`} />
-                </div>
-                <Form>
-                <Row>
-                  <Col className="pl-4" md="3">
-                    <Form.Group>
-                      {/* <label>Date Started</label> */}
-                      <Form.Control
-                        placeholder="Date Started"
-                        type="text"
-                      ></Form.Control>
-                    </Form.Group>
-                  </Col>
-                  <Col className="pl-1" md="3">
-                    <Form.Group>
-                      {/* <label>Deadline</label> */}
-                      <Form.Control
-                        placeholder="Deadline"
-                        type="text"
-                      ></Form.Control>
-                    </Form.Group>
-                  </Col>
-                  <Col className="pl-1" md="3">
-                  <Form.Control
-                      placeholder="Add Amount"
-                      type="Number"
-                    ></Form.Control>
-                  </Col>
-                  <Col className="pl-1" md="3">
-                  <Button className="ml-2 btn btn-fill">Add</Button>
-                  </Col>
-                </Row>
-                </Form>
-              </Card.Body>
-            </Card>
-        </>
-    )
+        <Card.Body>
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: "20px" }}>
+            <div>
+              <span style={{ color: "red" }}> Currently Saved: {props.currentAmount} </span>
+            </div>
+            <div>
+              <span style={{ color: "green" }}> Goal Amount: {props.targetAmount}</span>
+            </div>
+          </div>
+          <div className="progressBar my-1" style={{ fontSize: "15px" }}>
+            <ProgressBar animated now={percentage} label={`${percentage}% completed`} />
+          </div>
+          <div className="mt-2">
+          <Form className="form-inline float-right">
+              <Form.Control
+                placeholder="Add Amount"
+                type="Number"
+              ></Form.Control>
+              <Form.Control
+                type="Date"
+              ></Form.Control>
+              <Button className="btn btn-fill mx-1">Update Goal</Button>
+              <Button className="btn btn-fill mx-1 btn-danger" onClick={()=>props.deleteGoal(id)}>Delete Goal</Button>
+          </Form>
+            <span>Deadline: {props.endDate} </span>
+            <br />
+            <span>Date set: {props.startDate} </span>
+          </div>
+        </Card.Body>
+      </Card>
+    </>
+  )
 }

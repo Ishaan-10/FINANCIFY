@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 })
 
 // create
-router.post('/newgoal', async (req, res) => {
+router.post('/', async (req, res) => {
     const { goal, targetAmount, currentAmount, endDate, completed } = req.body;
     const newGoal = new Goal({ goal, targetAmount, currentAmount, endDate, completed });
     const { _id } = req.user;
@@ -27,11 +27,10 @@ router.post('/newgoal', async (req, res) => {
     console.log(userData);
     res.send(newGoal);
 
-
 })
 
 // delete
-router.delete('/deletegoal', async (req, res) => {
+router.delete('/', async (req, res) => {
 
     try {
         const { _id } = req.user;
@@ -47,7 +46,7 @@ router.delete('/deletegoal', async (req, res) => {
 })
 
 // update
-router.put('/updategoal', async (req, res) => {
+router.put('/', async (req, res) => {
     try {
         const { goals_id } = req.body;
         const { goal, targetAmount, currentAmount, endDate, completed } = req.body;
