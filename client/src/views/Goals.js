@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { getGoal, setGoal, updateGoal, deleteGoal } from "API";
 import Goals from "../components/Goals";
 
 // react-bootstrap components
@@ -15,18 +15,58 @@ import {
 } from "react-bootstrap";
 
 function Maps() {
+
+  const [allGoals, setAllGoals] = useState([]);
+  // 
+  const [newGoal, setNewGoal] = useState("");
+  const [newtargetAmount, setNewtargetAmount] = useState("");
+  const [newcurrentAmount, setNewcurrentAmount] = useState("");
+  const [newendDate, setNewendDate] = useState("");
+  const [newcompleted, setNewcompleted] = useState("");
+
+  const newGoalData = { goal: newGoal, targetAmount: newtargetAmount, currentAmount: newcurrentAmount, endDate: newendDate, completed: false };
+
+  const fetchGoals = async () => {
+    await getGoal().then((res) => {
+      console.log(res.data);
+      setAllGoals(res.data)
+    }).catch(e => console.log(e.message))
+  }
+  const createNewGoal = async (e) => {
+    await setGoal(newGoalData).then(res=>console.log(res)).catch(e=>console.log(res))
+    fetchGoals()
+  }
+
+  useEffect(() => {
+    fetchGoals()
+  }, [])
+  /* { goal: newGoal, targetAmount: newtargetAmount, currentAmount: newcurrentAmount, endDate: newendDate, completed: false } */
+
   return (
+                
     <>
       <Container fluid>
         <Row>
           <Col md="12">
-           <Goals/>
-           <Goals/>
+          {allGoals.map(goal=>{
+            return (
+              <Goals
+              goal={goal.goal}
+              targetAmount={goal.targetAmount}
+              currentAmount={goal.currentAmount}
+              endDate={goal.endDate}
+              completed={goal.completed}
+              startDate={goal.startDate}
+              />
+            )
+          })
+          }
+
           </Col>
           <Col md="12">
             <Card>
               <Card.Header>
-                <Card.Title as="h4">Add your Goals</Card.Title>
+                <Card.Title as="h4">Add New Goal</Card.Title>
                 <p className="card-category">
                   This will help you to manage your finance goals.
                 </p>
@@ -37,30 +77,11 @@ function Maps() {
                     <Form.Group>
                       <label>Goal Description</label>
                       <Form.Control
-                        defaultValue="Save For a Home"
-                        placeholder="Goal"
+                        placeholder="Goal aim"
                         type="text"
-                      ></Form.Control>
-                    </Form.Group>
-                  </Col>
-                  <Col className="pl-1" md="6">
-                    <Form.Group>
-                      <label>Goal Amount</label>
-                      <Form.Control
-                        defaultValue="1000000"
-                        placeholder="Amount"
-                        type="number"
-                      ></Form.Control>
-                    </Form.Group>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="pl-4" md="6">
-                    <Form.Group>
-                      <label>Date Started</label>
-                      <Form.Control
-                        placeholder="Start Time"
-                        type="date"
+                        value={newGoal}
+                        required
+                        onChange={(e)=>setNewGoal(e.target.value)}
                       ></Form.Control>
                     </Form.Group>
                   </Col>
@@ -70,28 +91,41 @@ function Maps() {
                       <Form.Control
                         placeholder="Date"
                         type="date"
+                        onChange={(e)=>setNewendDate(e.target.valueAsDate)}
                       ></Form.Control>
                     </Form.Group>
                   </Col>
                 </Row>
                 <Row>
-                  <Col className="pl-4" md="12">
+                  <Col className="" md="6">
                     <Form.Group>
-                      <label>How will you complete it?</label>
+                      <label>Currently Saved</label>
                       <Form.Control
-                        defaultValue="Saving in Fixed Deposists"
-                        placeholder="Completion"
-                        type="text"
+                        placeholder="Goal amount"
+                        type="number"
+                        value={newcurrentAmount}
+                        onChange={(e)=>setNewcurrentAmount(e.target.value)}
+                      ></Form.Control>
+                    </Form.Group>
+                  </Col>
+                  <Col className="pl-1" md="6">
+                    <Form.Group>
+                      <label>Target Amount</label>
+                      <Form.Control
+                        placeholder="Goal amount"
+                        type="number"
+                        value={newtargetAmount}
+                        onChange={(e)=>setNewtargetAmount(e.target.value)}
                       ></Form.Control>
                     </Form.Group>
                   </Col>
                 </Row>
                 <div className="d-grid gap-2 pl-2">
-                  <Button className="btn-fill pull-right" variant="primary" type="submit">
+                  <Button className="btn-fill pull-right" variant="primary" onClick={createNewGoal}>
                     Add Goal
                   </Button>
                 </div>
-                <br />
+                
               </Form>
             </Card>
           </Col>
