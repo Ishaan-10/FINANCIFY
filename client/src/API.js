@@ -34,3 +34,6 @@ export const getGoal = async()=>await API.get('/goals')
 export const setGoal = async(data)=>await API.post('/goals',data)
 export const updateGoal = async(data)=>await API.put('/goals',data)
 export const deleteGoal = async(data)=>await API.delete('/goals',{data:data})
+
+// Overview
+export const getOverview = async()=>await API.get('/overview/')

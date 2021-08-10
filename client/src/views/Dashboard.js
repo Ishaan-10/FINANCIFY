@@ -1,6 +1,7 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import ChartistGraph from "react-chartist";
 import TransactionRow from "components/TransactionRow";
+import { getOverview } from "API";
 
 // react-bootstrap components
 import {
@@ -19,6 +20,29 @@ import {
 } from "react-bootstrap";
 
 function Dashboard() {
+
+  const [data,setData]=useState({});
+
+  const getData = async()=>{
+    await getOverview().then(res=>{
+      console.log(res.data)
+      setData(res.data)
+    }).catch(e=>{
+      console.log(e.message)
+    })
+  }
+  // goals: [{…}]
+  // monthlyIncome: 0
+  // recentTransactions: (5) [{…}, {…}, {…}, {…}, {…}]
+  // recurringCount: 2
+  // totalAmountSpent: 222
+  // transactionsCount: 5
+
+
+  useEffect(()=>{
+     getData()
+  },[])
+
   return (
     <>
       <Container fluid>
@@ -35,7 +59,7 @@ function Dashboard() {
                   <Col xs="7">
                     <div className="numbers">
                       <p className="card-category">Total Amount Spent </p>
-                      <Card.Title as="h4">₹ 150</Card.Title>
+                      <Card.Title as="h4">₹ {data.totalAmountSpent}</Card.Title>
                     </div>
                   </Col>
                 </Row>
@@ -61,7 +85,7 @@ function Dashboard() {
                   <Col xs="7">
                     <div className="numbers">
                       <p className="card-category">Monthly Income</p>
-                      <Card.Title as="h4">₹ 1,345</Card.Title>
+                      <Card.Title as="h4">₹ {data.monthlyIncome}</Card.Title>
                     </div>
                   </Col>
                 </Row>
@@ -87,7 +111,7 @@ function Dashboard() {
                   <Col xs="7">
                     <div className="numbers">
                       <p className="card-category">No. of Transactions</p>
-                      <Card.Title as="h4">23</Card.Title>
+                      <Card.Title as="h4">{data.transactionsCount}</Card.Title>
                     </div>
                   </Col>
                 </Row>
@@ -113,7 +137,7 @@ function Dashboard() {
                   <Col xs="7">
                     <div className="numbers">
                       <p className="card-category">Recurring Payments</p>
-                      <Card.Title as="h4">+45K</Card.Title>
+                      <Card.Title as="h4">{data.recurringCount}</Card.Title>
                     </div>
                   </Col>
                 </Row>

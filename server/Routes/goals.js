@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const { isLoggedIn } = require('../middlewares')
 const Goal = require('../Models/Goals')
 const User = require('../Models/User')
 
