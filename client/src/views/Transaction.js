@@ -96,7 +96,7 @@ function TableList() {
                       return (
                         <TransactionRow
                           key={index}
-                          sNo={index}
+                          sNo={index+1}
                           name={transaction.name}
                           amount={transaction.amount}
                           category={transaction.category}
@@ -154,6 +154,10 @@ function TableList() {
                     <option value="">Choose...</option>
                     <option value="Household">Household</option>
                     <option value="Electronics">Electronics</option>
+                    <option value="Fashion">Fashion</option>
+                    <option value="Sports and Fitness">Sports and Fitness</option>
+                    <option value="Automobile">Automobile</option>
+                    <option value="Baby Care">Baby Care</option>
                     <option value="Others">Others</option>
                   </Form.Control>
                 </Form.Group>

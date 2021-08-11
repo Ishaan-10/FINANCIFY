@@ -46,6 +46,7 @@ export const FormContent = styled.div`
   justify-content: center;
 
   @media screen and (max-width: 480px) {
+    margin-top: 30px;
     padding: 10px;
   }
 `
