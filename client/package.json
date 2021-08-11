@@ -8,6 +8,7 @@
     "chartist": "0.10.1",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
+    "moment": "^2.29.1",
     "node-sass": "4.14.1",
     "react": "17.0.1",
     "react-bootstrap": "1.4.3",

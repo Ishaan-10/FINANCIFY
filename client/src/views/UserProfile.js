@@ -13,6 +13,7 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
+var moment = require('moment');
 
 function User() {
 
@@ -152,7 +153,7 @@ function User() {
                         <label>Date at which you get your salary</label>
                         <Form.Control
                           placeholder="Date"
-                          defaultValue={new Date(data.salaryDate).toUTCString()}
+                          defaultValue={moment(data.salaryDate).format("YYYY-MM-DD")}
                           type="date"
                           onChange={(e)=>setNewDate(e.target.value)}
                         ></Form.Control>

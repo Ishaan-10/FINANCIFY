@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getGoal, setGoal, updateGoal, deleteGoal } from "API";
 import Goals from "../components/Goals";
-
+var moment = require('moment');
 // react-bootstrap components
 import {
   Badge,
