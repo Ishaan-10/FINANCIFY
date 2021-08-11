@@ -1,31 +1,108 @@
 import React from 'react'
+import props from 'prop-types';
 
-import Modal from react-bootstrap
+import {
+    Badge,
+    Modal,
+    Button,
+    Card,
+    Form,
+    ProgressBar,
+    Container,
+    Row,
+    Col,
+  } from "react-bootstrap";
 
-export default function modelScan() {
+export default function modelScan(props) {
     return (
         <Modal
       {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
-      centered
+      top
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
+        <Modal.Title as="h2" id="contained-modal-title-vcenter">
+          Add Transaction
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+        <hr></hr>
+        <Form>
+              <Form.Group>
+                <Form.Label>Name</Form.Label>
+                <Form.Row>
+                  <Col>
+                    <Form.Control placeholder="Name of the Transaction"
+                    //   value={newName}
+                    //   onChange={(e) => setNewName(e.target.value)}
+                      required
+                    ></Form.Control>
+                  </Col>
+                </Form.Row>
+              </Form.Group>
+              <Form.Row>
+                <Form.Group as={Col} controlId="formGridNum">
+                  <Form.Label>Amount</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="Enter the Amount"
+                    // value={newAmount}
+                    // onChange={(e) => setNewAmount(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+              </Form.Row>
+              <Form.Row>
+                <Form.Group as={Col} controlId="formGridCat">
+                  <Form.Label>Category</Form.Label>
+                  <Form.Control as="select"
+                    // onChange={(e) => setNewCategory(e.target.value)}
+                    required
+                  >
+                    <option value="">Choose...</option>
+                    <option value="Household">Household</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Fashion">Fashion</option>
+                    <option value="Sports and Fitness">Sports and Fitness</option>
+                    <option value="Automobile">Automobile</option>
+                    <option value="Baby Care">Baby Care</option>
+                    <option value="Others">Others</option>
+                  </Form.Control>
+                </Form.Group>
+                <Form.Group as={Col}>
+                  <Form.Label>Mode of Payment</Form.Label>
+                  <Form.Control as="select"
+                    // onChange={(e) => setNewPaymentMode(e.target.value)}
+                    required
+                  >
+                    <option value="">Choose...</option>
+                    <option value="credit card">Credit Card</option>
+                    <option value="debit card">Debit Card</option>
+                    <option value="cash">Cash</option>
+                    <option value="bitcoin">Bitcoin</option>
+                    <option value="UPI">UPI</option>
+                    <option value="net banking">Net Banking</option>
+                    <option value="others">Others</option>
+                  </Form.Control>
+                </Form.Group>
+                <Form.Group>
+                  <label>Date</label>
+                  <Form.Control
+                    placeholder="Date"
+                    type="date"
+                    // onChange={e => setNewDate(e.target.valueAsDate)}
+                  ></Form.Control>
+                </Form.Group>
+              </Form.Row>
+              <Button  className="btn-fill pull-right" variant="success" type="submit" 
+            //   onClick={newTransaction}
+              >
+                Submit
+              </Button>
+              <br />
+            </Form>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
     </Modal>
     )
 }

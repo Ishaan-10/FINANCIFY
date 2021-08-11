@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import Tesseract from 'tesseract.js';
+import Modal from "components/modelScan";
 import {
     Badge,
     Button,
@@ -17,6 +18,7 @@ import {
 import { Spinner } from 'react-bootstrap';
 
 export default function Scan() {
+    const [modalShow, setModalShow] = React.useState(false);
     const [imagePath, setImagePath] = useState("");
     const [text, setText] = useState("");
     const [confidence,setConfidence]=useState("");
@@ -63,25 +65,32 @@ export default function Scan() {
                 <Form.Label>Click to upload</Form.Label>
                 <Form.Control type="file" size="lg" onChange={handleChange} />
               </Form.Group>
-              <Button className="btn-fill pull-right" variant="success" type="submit" onClick={handleClick}>Convert To Text</Button>
-              <div>
-              <br></br>
-                <img src={imagePath} style={{height:200,width:200}} />
-              </div>
             </Card.Body>
           </Col>
           <Col md="2">
-            <Button className="btn-fill pull-right" variant="info" type="submit">200</Button>
+            <Button className="btn-fill pull-right" variant="info" onClick={() => setModalShow(true)}>200</Button>
+            <Modal show={modalShow} onHide={() => setModalShow(false)}/>
           </Col>
           <Col md="2">
-            <Button className="btn-fill pull-right" variant="info" type="submit">300</Button>
+            <Button className="btn-fill pull-right" variant="info" onClick={() => setModalShow(true)}>300</Button>
+            <Modal show={modalShow} onHide={() => setModalShow(false)}/>
           </Col>
           <Col md="2">
-            <Button className="btn-fill pull-right" variant="info" type="submit">400</Button>
+            <Button className="btn-fill pull-right" variant="info" onClick={() => setModalShow(true)}>400</Button>
+            <Modal show={modalShow} onHide={() => setModalShow(false)}/>
           </Col>
         </Row>
         <Row>
-          <Col classname="pl-4" md="12">
+          <Col md="6">
+            <Card.Body>
+            <Button className="btn-fill pull-right" variant="success" type="submit" onClick={handleClick}>Convert To Text</Button>
+            <div>
+              <br></br>
+              <img src={imagePath} style={{height:200,width:200}} />
+            </div>
+            </Card.Body>
+          </Col>
+          <Col classname="pl-4" md="6">
               {loading ? <Spinner /> : <div>
                 { confidence && <h5>Conversion accuracy = {confidence}%</h5>}
                 <p>{text}</p>
