@@ -23,6 +23,7 @@ export default function Scan() {
     const [text, setText] = useState("");
     const [confidence,setConfidence]=useState("");
     const [loading,setLoading]=useState(false);
+    const [five,setFive]=useState([]);
 
     const handleChange = (event) => {
         setImagePath(URL.createObjectURL(event.target.files[0]));
@@ -41,17 +42,31 @@ export default function Scan() {
           setLoading(false)
         })
         .then(result => {
-          // Get Confidence score
           setLoading(false)
           console.log(result)
           const confidence = result.data.confidence;
-         
           const text = result.data.text;
           setText(text);
+          setFive(analyzeResult(result.data))
           setConfidence(confidence);
-      
         })
       }
+    
+      const analyzeResult = (data)=>{
+        const wordsArray = data.words.map(word=>{
+          return parseInt(word.text)
+        })
+
+        const numbers = wordsArray.filter(word=> !Object.is(NaN,word))
+        const numbersSorted = numbers.sort(function(a, b) {
+          return a - b;
+        });
+        console.log(numbersSorted)
+        const topFiveNums = numbersSorted.slice(numbersSorted.length-5)
+        console.log(topFiveNums)
+        return topFiveNums;
+      }
+    
 
     return (
         <>
