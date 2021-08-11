@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import ChartistGraph from "react-chartist";
 import TransactionRow from "components/TransactionRow";
 import { getOverview } from "API";
+import OverviewGoalsRow from "components/OverviewGoalsRow";
 
 // react-bootstrap components
 import {
@@ -157,7 +158,6 @@ function Dashboard() {
             <Card>
               <Card.Header>
                 <Card.Title as="h4">Recent Transactions</Card.Title>
-                <p className="card-category">Last 24 Hours</p>
               </Card.Header>
               <Card.Body className="table-full-width table-responsive px-0">
                 <Table className="table-hover table-striped">
@@ -168,11 +168,27 @@ function Dashboard() {
                       <th className="border-0">Amount</th>
                       <th className="border-0">Category</th>
                       <th className="border-0">Mode of Payment</th>
+                      <th className="border-0">Date</th>
                       <th className="border-0">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <TransactionRow/>
+                  {data.recentTransactions?.map((transaction, index) => {
+                      return (
+                        <TransactionRow
+                          key={index}
+                          sNo={index}
+                          name={transaction.name}
+                          amount={transaction.amount}
+                          category={transaction.category}
+                          date={transaction.date}
+                          paymentMode={transaction.paymentMode}
+                          _id={transaction._id}
+                        />
+                      )
+                    })
+
+                    }
                   </tbody>
                 </Table>
               </Card.Body>
@@ -186,6 +202,7 @@ function Dashboard() {
             </Card>
           </Col>
           <Col md="4">
+
             <Card>
               <Card.Header>
                 <Card.Title as="h4">Categories</Card.Title>
@@ -217,6 +234,7 @@ function Dashboard() {
                 </div>
               </Card.Body>
             </Card>
+
           </Col>
         </Row>
         <Row>
@@ -259,112 +277,12 @@ function Dashboard() {
                 <div className="table-full-width">
                   <Table>
                     <tbody>
-                      <tr>
-                        <td>
-                          <Form.Check className="mb-1 pl-0">
-                            <Form.Check.Label>
-                              <Form.Check.Input
-                                defaultValue=""
-                                type="checkbox"
-                              ></Form.Check.Input>
-                              <span className="form-check-sign"></span>
-                            </Form.Check.Label>
-                          </Form.Check>
-                        </td>
-                        <td>
-                          Sign contract for "What are conference organizers
-                          afraid of?"
-                        </td>
-                        
-                      </tr>
-                      <tr>
-                        <td>
-                          <Form.Check className="mb-1 pl-0">
-                            <Form.Check.Label>
-                              <Form.Check.Input
-                                defaultChecked
-                                defaultValue=""
-                                type="checkbox"
-                              ></Form.Check.Input>
-                              <span className="form-check-sign"></span>
-                            </Form.Check.Label>
-                          </Form.Check>
-                        </td>
-                        <td>
-                          Lines From Great Russian Literature? Or E-mails From
-                          My Boss?
-                        </td>
-                        
-                      </tr>
-                      <tr>
-                        <td>
-                          <Form.Check className="mb-1 pl-0">
-                            <Form.Check.Label>
-                              <Form.Check.Input
-                                defaultChecked
-                                defaultValue=""
-                                type="checkbox"
-                              ></Form.Check.Input>
-                              <span className="form-check-sign"></span>
-                            </Form.Check.Label>
-                          </Form.Check>
-                        </td>
-                        <td>
-                          Flooded: One year later, assessing what was lost and
-                          what was found when a ravaging rain swept through
-                          metro Detroit
-                        </td>
-                        
-                      </tr>
-                      <tr>
-                        <td>
-                          <Form.Check className="mb-1 pl-0">
-                            <Form.Check.Label>
-                              <Form.Check.Input
-                                defaultChecked
-                                type="checkbox"
-                              ></Form.Check.Input>
-                              <span className="form-check-sign"></span>
-                            </Form.Check.Label>
-                          </Form.Check>
-                        </td>
-                        <td>
-                          Create 4 Invisible User Experiences you Never Knew
-                          About
-                        </td>
-                        
-                      </tr>
-                      <tr>
-                        <td>
-                          <Form.Check className="mb-1 pl-0">
-                            <Form.Check.Label>
-                              <Form.Check.Input
-                                defaultValue=""
-                                type="checkbox"
-                              ></Form.Check.Input>
-                              <span className="form-check-sign"></span>
-                            </Form.Check.Label>
-                          </Form.Check>
-                        </td>
-                        <td>Read "Following makes Medium better"</td>
-                        
-                      </tr>
-                      <tr>
-                        <td>
-                          <Form.Check className="mb-1 pl-0">
-                            <Form.Check.Label>
-                              <Form.Check.Input
-                                defaultValue=""
-                                disabled
-                                type="checkbox"
-                              ></Form.Check.Input>
-                              <span className="form-check-sign"></span>
-                            </Form.Check.Label>
-                          </Form.Check>
-                        </td>
-                        <td>Unfollow 5 enemies from twitter</td>
-                        
-                      </tr>
+                      {data.goals?.map((goal,index)=>{
+                          return <OverviewGoalsRow
+                          goal={goal.goal}
+                           />   
+                      })}
+
                     </tbody>
                   </Table>
                 </div>
