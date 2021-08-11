@@ -6,7 +6,8 @@ class Footer extends Component {
     return (
       <footer className="footer px-0 px-lg-3">
         <Container fluid>
-          <nav>
+          <p>Financify © {new Date().getFullYear()} All rights reserved.</p>
+          {/* <nav>
             <ul className="footer-menu">
               <li>
                 <a href="#pablo" onClick={(e) => e.preventDefault()}>
@@ -29,7 +30,7 @@ class Footer extends Component {
                 </a>
               </li>
             </ul>
-          </nav>
+          </nav> */}
         </Container>
       </footer>
     );

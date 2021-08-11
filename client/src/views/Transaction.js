@@ -182,7 +182,7 @@ function TableList() {
                   ></Form.Control>
                 </Form.Group>
               </Form.Row>
-              <Button  className="btn-fill pull-right" variant="primary" type="submit" onClick={newTransaction}>
+              <Button  className="btn-fill pull-right" variant="success" type="submit" onClick={newTransaction}>
                 Submit
               </Button>
               <br />

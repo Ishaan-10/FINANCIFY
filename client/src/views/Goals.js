@@ -104,7 +104,7 @@ function Maps() {
                   </Col>
                 </Row>
                 <Row>
-                  <Col className="" md="6">
+                  <Col className="pl-4" md="6">
                     <Form.Group>
                       <label>Currently Saved</label>
                       <Form.Control
@@ -128,7 +128,7 @@ function Maps() {
                   </Col>
                 </Row>
                 <div className="d-grid gap-2 pl-2">
-                  <Button className="btn-fill pull-right" variant="primary" onClick={createNewGoal}>
+                  <Button className="btn-fill pull-right" variant="success" onClick={createNewGoal}>
                     Add Goal
                   </Button>
                 </div>

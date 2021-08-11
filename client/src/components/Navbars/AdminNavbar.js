@@ -123,7 +123,7 @@ function Header() {
             <Nav.Item>
               <Nav.Link
                 className="m-0"
-                href="#pablo"
+                href="/admin/user"
                 style={{color:"white"}}
                 onClick={(e) =>{
                   e.preventDefault()
@@ -183,7 +183,7 @@ function Header() {
             <Nav.Item>
               <Nav.Link
                 className="m-0"
-                href="#pablo"
+                href="/"
                 style={{color:"#F07459"}}
                 onClick={logoutUser}
               >
