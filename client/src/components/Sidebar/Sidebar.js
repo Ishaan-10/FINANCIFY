@@ -21,7 +21,6 @@ function Sidebar({ color, image, routes }) {
       <div className="sidebar-wrapper">
         <div className="logo d-flex align-items-center justify-content-start">
           <a
-            href="/"
             className="simple-text logo-mini mx-1"
           >
             <div className="logo-img">
@@ -31,7 +30,7 @@ function Sidebar({ color, image, routes }) {
               />
             </div>
           </a>
-          <a className="simple-text" href="/">
+          <a className="simple-text">
             Financify
           </a>
         </div>
