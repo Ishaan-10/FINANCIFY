@@ -53,14 +53,15 @@ export default function Scan() {
 
     return (
         <>
-            <div>
-                <h3>Scan your receipts</h3>
-                <Form.Group controlId="formFileLg" className="mb-3">
-                    <Form.Label>Click to upload</Form.Label>
-                    <Form.Control type="file" size="lg" onChange={handleChange} />
-                </Form.Group>
-                <Button onClick={handleClick}>Convert To Text</Button>
-            </div>
+        <Card border="dark" style={{ width: '36rem' }}>
+          <Card.Header as="h3">Scan Your Receipts</Card.Header>
+          <hr></hr>
+          <Card.Body>
+            <Form.Group controlId="formFileLg" className="mb-3">
+              <Form.Label>Click to upload</Form.Label>
+              <Form.Control type="file" size="lg" onChange={handleChange} />
+            </Form.Group>
+            <Button className="btn-fill pull-right" variant="success" type="submit" onClick={handleClick}>Convert To Text</Button>
             <div>
                 <img src={imagePath} style={{height:200,width:200}} />
             </div>
@@ -68,6 +69,8 @@ export default function Scan() {
                 { confidence && <h5>Conversion accuracy = {confidence}%</h5>}
                 <p>{text}</p>
             </div>}
+          </Card.Body>
+        </Card>
         </>
     )
 }

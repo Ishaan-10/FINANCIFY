@@ -128,9 +128,6 @@ function User() {
               </Card.Body>
             </Card>
           </Col>
-
-
-
           <Col md="8">
             <Card>
               <Card.Header>
