@@ -132,7 +132,7 @@ function Maps() {
                     Add Goal
                   </Button>
                 </div>
-                
+                <br></br>
               </Form>
             </Card>
           </Col>
