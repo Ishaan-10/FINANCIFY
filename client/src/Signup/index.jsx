@@ -47,7 +47,7 @@ const Signup = () => {
               <FormLabel htmlFor='for'>Password</FormLabel>
                 <FormInput htmlFor='password' required onChange={(e)=>setPassword(e.target.value)} />
               <FormButton type='button' onClick={formSubmitHandler}>Continue</FormButton>
-              <Text>Already have an account?</Text>
+              <Text><a href="/signin">Already have an account?</a></Text>
             </Form>
           </FormContent>
         </FormWrap>
