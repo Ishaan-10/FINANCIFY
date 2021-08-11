@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
     const userData = await User.findById(_id).populate('wallet')
     const userWallet = await Wallet.findById(userData.wallet._id);
     userWallet.transactions.push(newTransaction)
-    userWallet.amountSpent+=parseInt(amount)
+    userWallet.amountSpent += parseInt(amount)
     await userWallet.save()
     res.send(await User.findById(_id).populate('wallet'))
 
@@ -42,13 +42,8 @@ router.delete('/', async (req, res) => {
         const { _id } = req.user;
         const userData = await User.findById(_id).populate('wallet')
         const userWallet = await Wallet.findById(userData.wallet._id);
-        userWallet.transactions = userWallet.transactions.filter(transaction => {
-            return transaction._id !== transaction_id;
-        })
-        console.log(userWallet)
-        await userWallet.save()
+        const newWalletdata = await Wallet.findByIdAndUpdate(userData.wallet._id, { $pull: { transactions: { _id: transaction_id } } });
         res.status(200).json({ "message": "successfully deleted" })
-
     } catch (e) {
         res.status(400).json({ "error": e.message })
     }
