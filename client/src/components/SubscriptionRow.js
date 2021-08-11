@@ -30,7 +30,7 @@ export default function SubscriptionRow(props) {
                 <td>{repeatDuration}</td>
                 <td>{moment(date).format("DD/MM/YY HH:mm")}</td>
                 <td className="td-actions">
-                    <OverlayTrigger
+                    {/* <OverlayTrigger
                         overlay={
                             <Tooltip id="tooltip-488980961">
                                 Edit Transaction
@@ -44,7 +44,7 @@ export default function SubscriptionRow(props) {
                         >
                             <i className="fas fa-edit"></i>
                         </Button>
-                    </OverlayTrigger>
+                    </OverlayTrigger> */}
                     <OverlayTrigger
                         overlay={
                             <Tooltip id="tooltip-506045838">Remove Transaction</Tooltip>
