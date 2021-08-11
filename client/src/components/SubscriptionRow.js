@@ -13,6 +13,7 @@ import {
     OverlayTrigger,
     Tooltip
   } from "react-bootstrap";
+  var moment = require('moment');
 
 export default function SubscriptionRow(props) {
     const [SNo, setSNo] = useState(props.sNo)
@@ -27,7 +28,7 @@ export default function SubscriptionRow(props) {
                 <td>{name}</td>
                 <td>{amount}</td>
                 <td>{repeatDuration}</td>
-                <td>{date}</td>
+                <td>{moment(date).format("DD/MM/YY HH:mm")}</td>
                 <td className="td-actions">
                     <OverlayTrigger
                         overlay={

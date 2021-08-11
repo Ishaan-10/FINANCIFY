@@ -12,7 +12,8 @@ import {
     Col,
     OverlayTrigger,
     Tooltip
-  } from "react-bootstrap";
+} from "react-bootstrap";
+var moment = require('moment');
 
 export default function TransactionRow(props) {
     const [SNo, setSNo] = useState(props.sNo)
@@ -22,45 +23,46 @@ export default function TransactionRow(props) {
     const [paymentMode, setpaymentMode] = useState(props.paymentMode)
     const [date, setDate] = useState(props.date)
     const id = props._id
+
     return (
-            <tr>
-                <td>{SNo}</td>
-                <td>{name}</td>
-                <td>{amount}</td>
-                <td>{category}</td>
-                <td>{paymentMode}</td>
-                <td>{date}</td>
-                <td className="td-actions">
-                    <OverlayTrigger
-                        overlay={
-                            <Tooltip id="tooltip-488980961">
-                                Edit Transaction
-                            </Tooltip>
-                        }
+        <tr>
+            <td>{SNo}</td>
+            <td>{name}</td>
+            <td>{amount}</td>
+            <td>{category}</td>
+            <td>{paymentMode}</td>
+            <td>{moment(date).format("DD/MM/YY  HH:mm")}</td>
+            <td className="td-actions">
+                <OverlayTrigger
+                    overlay={
+                        <Tooltip id="tooltip-488980961">
+                            Edit Transaction
+                        </Tooltip>
+                    }
+                >
+                    <Button
+                        className="btn-simple btn-link p-1"
+                        type="button"
+                        variant="info"
                     >
-                        <Button
-                            className="btn-simple btn-link p-1"
-                            type="button"
-                            variant="info"
-                        >
-                            <i className="fas fa-edit"></i>
-                        </Button>
-                    </OverlayTrigger>
-                    <OverlayTrigger
-                        overlay={
-                            <Tooltip id="tooltip-506045838">Remove Transaction</Tooltip>
-                        }
+                        <i className="fas fa-edit"></i>
+                    </Button>
+                </OverlayTrigger>
+                <OverlayTrigger
+                    overlay={
+                        <Tooltip id="tooltip-506045838">Remove Transaction</Tooltip>
+                    }
+                >
+                    <Button
+                        className="btn-simple btn-link p-1"
+                        type="button"
+                        variant="danger"
+                        onClick={e => props.deleteTransaction(id)}
                     >
-                        <Button
-                            className="btn-simple btn-link p-1"
-                            type="button"
-                            variant="danger"
-                            onClick={e=>props.deleteTransaction(id)}
-                        >
-                            <i className="fas fa-times"></i>
-                        </Button>
-                    </OverlayTrigger>
-                </td>
-            </tr>
+                        <i className="fas fa-times"></i>
+                    </Button>
+                </OverlayTrigger>
+            </td>
+        </tr>
     )
 }
