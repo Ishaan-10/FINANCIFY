@@ -3,47 +3,53 @@ const router = express.Router();
 const User = require('../Models/User')
 const Wallet = require('../Models/Wallet')
 
-router.get('/',async(req,res)=>{
+router.get('/', async (req, res) => {
 
-    try{
-        const {_id}=req.user;
+    try {
+        const { _id } = req.user;
         const userData = await User.findById(_id).populate('wallet')
         res.json(userData.wallet.recurringPayments)
     }
-    catch(e){
-        res.status(400).json({"error":e.message})
+    catch (e) {
+        res.status(400).json({ "error": e.message })
     }
 
 
 })
 
 // add
-router.post('/',async(req,res)=>{
+router.post('/', async (req, res) => {
 
-    const {name,amount,date,repeatDuration}=req.body;
-    const newPayment = {name,amount,date,repeatDuration};
-    const {_id}=req.user;
+    const { name, amount, date, repeatDuration } = req.body;
+    const newPayment = { name, amount, date, repeatDuration };
+    const { _id } = req.user;
     const userData = await User.findById(_id).populate('wallet')
     const userWallet = await Wallet.findById(userData.wallet._id);
     userWallet.recurringPayments.push(newPayment);
     await userWallet.save()
     res.send(await User.findById(_id).populate('wallet'))
-    
+
 })
 
 // delete
-router.delete('/',async(req,res)=>{
+router.delete('/', async (req, res) => {
 
-    const {payment_id,wallet_id}=req.body;
-    const userWallet = await Wallet.findById(wallet_id);
-    userWallet.recurringPayments.remove(payment_id)
-    await userWallet.save()
-    console.log(userWallet)
-    
+    try {
+
+        const { rpayment_id } = req.body;
+        const { _id } = req.user;
+        const userData = await User.findById(_id).populate('wallet')
+        const userWallet = await Wallet.findById(userData.wallet._id);
+        const newWalletdata = await Wallet.findByIdAndUpdate(userData.wallet._id, { $pull: { recurringPayments: { _id: rpayment_id } } });
+        res.status(200).json({ "message": "successfully deleted" })
+    } catch (e) {
+        res.status(400).json({ "error": e.message })
+    }
+
 })
 
 // modify
-router.put('/',async(req,res)=>{
+router.put('/', async (req, res) => {
 
 })
 
