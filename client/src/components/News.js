@@ -2,7 +2,8 @@ import React from 'react'
 
 import img1 from '../images/gadgets.jpeg'
 import img2 from '../images/cloth.jpg'
-
+import img3 from '../images/amazon.png'
+import img4 from '../images/flipkart.jpeg'
 import {
     Badge,
     Button,
@@ -20,15 +21,15 @@ export default function News() {
         <div class="card">
           <div class="card-horizontal">
             <div class="img-square-wrapper">
-              <img class="" src={img1} alt="Card image cap"></img>
+              <img class="" src={img1} alt="Card image cap" height="295" widht="380"></img>
             </div>
             <div class="card-body">
-              <h3 class="card-header">Sale on Amazon</h3>
+              <img src={img3} height="100px"></img>
               <hr></hr>
               <h4 class="card-title">50% savings on electronics</h4>
               <hr></hr>
               <p class="card-text">Since you are buying a lot of electronics, we suggest to keep an eye on sales/discounts.</p>
-              <Button className="btn-fill pull-right" variant="secondary">Save Money</Button>
+              <Button className="btn-fill pull-right" variant="success">Save Money</Button>
             </div>
           </div>
           <div class="card-footer">
@@ -38,15 +39,15 @@ export default function News() {
         <div class="card">
           <div class="card-horizontal">
             <div class="img-square-wrapper">
-              <img class="" src={img2} alt="Card image cap" height="380" widht="380"></img>
+              <img class="" src={img2} alt="Card image cap" height="280" widht="280"></img>
             </div>
             <div class="card-body">
-              <h3 class="card-header">Sale on Flipkart</h3>
+              <img src={img4} height="100px"></img>
               <hr></hr>
               <h4 class="card-title">60% savings on clothing and footwear</h4>
               <hr></hr>
               <p class="card-text">We see that you are transacting alot on clothes and shoes. So here is a deal for you!</p>
-              <Button className="btn-fill pull-right" variant="secondary">Save Money</Button>
+              <Button className="btn-fill pull-right" variant="success">Save Money</Button>
             </div>
           </div>
           <div class="card-footer">
