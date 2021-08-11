@@ -3,6 +3,8 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from 'react
 import { FooterContainer, FooterWrap, FooterLinkWrapper, FooterLinkItems, FooterLinkContainer, FooterLinkTitle, FooterLink, SocialIconLink, SocialIcons, SocialLogo, SocialMedia, SocialMediaWrap, WebsiteRights } from './FooterElements'
 import { animateScroll as scroll } from 'react-scroll';
 
+import img1 from 'images/favicon.png'
+
 const Footer = () => {
   const toggleHome = () => {
     scroll.scrollToTop();
@@ -50,6 +52,7 @@ const Footer = () => {
         <SocialMedia>
           <SocialMediaWrap>
             <SocialLogo to='/' onClick={toggleHome}>
+              <img src={img1} height="30px" width="30px"></img>
             Financify
             </SocialLogo>
             <WebsiteRights>Financify © {new Date().getFullYear()} All rights reserved.</WebsiteRights>

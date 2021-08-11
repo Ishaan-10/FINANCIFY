@@ -92,7 +92,7 @@ function Maps() {
                       ></Form.Control>
                     </Form.Group>
                   </Col>
-                  <Col className="pl-1" md="6">
+                  <Col className="pl-1" md="5">
                     <Form.Group>
                       <label>Deadline</label>
                       <Form.Control
@@ -115,7 +115,7 @@ function Maps() {
                       ></Form.Control>
                     </Form.Group>
                   </Col>
-                  <Col className="pl-1" md="6">
+                  <Col className="pl-1" md="5">
                     <Form.Group>
                       <label>Target Amount</label>
                       <Form.Control

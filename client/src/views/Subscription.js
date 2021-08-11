@@ -106,7 +106,7 @@ function Typography() {
                       ></Form.Control>
                     </Form.Group>
                   </Col>
-                  <Col className="pl-4" md="5">
+                  <Col className="pl-1" md="5">
                     <Form.Group>
                       <label>Date</label>
                       <Form.Control
