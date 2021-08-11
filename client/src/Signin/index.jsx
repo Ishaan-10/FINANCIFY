@@ -66,7 +66,7 @@ const Signin = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <FormButton onClick={formSubmitHandler}>Continue</FormButton>
-                  <Text>Don't have an account?</Text>
+                  <Text><a href="/signup">Don't have an account?</a></Text>
                   <Text>Forgot password</Text>
                 </Form>
               </FormContent>

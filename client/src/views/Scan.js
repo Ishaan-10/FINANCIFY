@@ -53,7 +53,7 @@ export default function Scan() {
 
     return (
         <>
-        <Card border="dark" style={{ width: '36rem' }}>
+        <Card classname="text-center" border="dark" style={{ width: '80rem' }}>
           <Card.Header as="h3">Scan Your Receipts</Card.Header>
           <hr></hr>
           <Card.Body>
