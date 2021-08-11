@@ -1,6 +1,7 @@
 import React from 'react'
 
 import img1 from '../images/gadgets.jpeg'
+import img2 from '../images/cloth.jpg'
 
 import {
     Badge,
@@ -32,6 +33,24 @@ export default function News() {
           </div>
           <div class="card-footer">
             <small class="text-muted">Last 2 days left.</small>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-horizontal">
+            <div class="img-square-wrapper">
+              <img class="" src={img2} alt="Card image cap" height="380" widht="380"></img>
+            </div>
+            <div class="card-body">
+              <h3 class="card-header">Sale on Flipkart</h3>
+              <hr></hr>
+              <h4 class="card-title">60% savings on clothing and footwear</h4>
+              <hr></hr>
+              <p class="card-text">We see that you are transacting alot on clothes and shoes. So here is a deal for you!</p>
+              <Button className="btn-fill pull-right" variant="secondary">Save Money</Button>
+            </div>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last 5 days left.</small>
           </div>
         </div>
       </>
