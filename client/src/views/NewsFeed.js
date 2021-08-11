@@ -21,14 +21,9 @@ function Icons() {
         <Row>
           <Col md="12">
             <Card>
-              <Card.Header>
-                <Card.Title as="h3">
-                Customized Feed for Upcoming Sales
-                </Card.Title>
-              </Card.Header>
+              <Card.Header as="h3">News Feed for Upcoming Sales</Card.Header>
+              <hr></hr>
             </Card>
-            <News/>
-            <News/>
             <News/>
           </Col>
         </Row>
