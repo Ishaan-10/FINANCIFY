@@ -54,22 +54,40 @@ export default function Scan() {
     return (
         <>
         <Card classname="text-center" border="dark" style={{ width: '80rem' }}>
-          <Card.Header as="h3">Scan Your Receipts</Card.Header>
-          <hr></hr>
-          <Card.Body>
-            <Form.Group controlId="formFileLg" className="mb-3">
-              <Form.Label>Click to upload</Form.Label>
-              <Form.Control type="file" size="lg" onChange={handleChange} />
-            </Form.Group>
-            <Button className="btn-fill pull-right" variant="success" type="submit" onClick={handleClick}>Convert To Text</Button>
-            <div>
+        <Card.Header as="h3">Scan Your Receipts</Card.Header>
+        <hr></hr>
+        <Row>
+          <Col md="6">
+            <Card.Body>
+              <Form.Group controlId="formFileLg" className="mb-3">
+                <Form.Label>Click to upload</Form.Label>
+                <Form.Control type="file" size="lg" onChange={handleChange} />
+              </Form.Group>
+              <Button className="btn-fill pull-right" variant="success" type="submit" onClick={handleClick}>Convert To Text</Button>
+              <div>
+              <br></br>
                 <img src={imagePath} style={{height:200,width:200}} />
-            </div>
-            {loading ? <Spinner /> : <div>
+              </div>
+            </Card.Body>
+          </Col>
+          <Col md="2">
+            <Button className="btn-fill pull-right" variant="info" type="submit">200</Button>
+          </Col>
+          <Col md="2">
+            <Button className="btn-fill pull-right" variant="info" type="submit">300</Button>
+          </Col>
+          <Col md="2">
+            <Button className="btn-fill pull-right" variant="info" type="submit">400</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col classname="pl-4" md="12">
+              {loading ? <Spinner /> : <div>
                 { confidence && <h5>Conversion accuracy = {confidence}%</h5>}
                 <p>{text}</p>
-            </div>}
-          </Card.Body>
+              </div>}
+          </Col>
+        </Row>
         </Card>
         </>
     )
