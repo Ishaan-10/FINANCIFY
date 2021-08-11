@@ -139,7 +139,7 @@ function Typography() {
                       >
                         <option>Choose...</option>
                         <option value="Monthly">Monthly</option>
-                        <option value="Annully">Annully</option>
+                        <option value="Annully">Annually</option>
                       </Form.Control>
                     </Form.Group>
                   </Col>
