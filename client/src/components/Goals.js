@@ -10,6 +10,7 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
+var moment = require('moment');
 
 export default function Goals(props) {
   const percentage = parseInt((props.currentAmount) / (props.targetAmount) * 100);
@@ -45,9 +46,9 @@ export default function Goals(props) {
               <Button className="btn btn-fill mx-1">Update Goal</Button>
               <Button className="btn btn-fill mx-1 btn-danger" onClick={()=>props.deleteGoal(id)}>Delete Goal</Button>
           </Form>
-            <span>Deadline: {props.endDate} </span>
+            <span>Deadline: {moment(props.endDate).format("DD/MM/YYYY")} </span>
             <br />
-            <span>Date set: {props.startDate} </span>
+            <span>Date set: {moment(props.startDate).format("DD/MM/YYYY")} </span>
           </div>
         </Card.Body>
       </Card>
