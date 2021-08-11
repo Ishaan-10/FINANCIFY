@@ -13,6 +13,7 @@ const authRoutes = require('./Routes/authRoutes');
 const { urlencoded } = require('express');
 const transactions = require('./Routes/transactions');
 const goals = require('./Routes/goals');
+const profile = require('./Routes/profile');
 const overview = require('./Routes/overview');
 const incomeSource = require('./Routes/incomeSources');
 const recurring = require('./Routes/recurringPayments');
@@ -76,6 +77,7 @@ app.use('/goals', goals);
 app.use('/income', incomeSource);
 app.use('/recurring', recurring);
 app.use('/overview', overview);
+app.use('/profile', profile);
 
 
 const PORT = process.env.PORT || 3001;

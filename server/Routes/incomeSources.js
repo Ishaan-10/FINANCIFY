@@ -8,7 +8,7 @@ router.get('/',async(req,res)=>{
     try{
         const {_id}=req.user;
         const userData = await User.findById(_id).populate('wallet')
-        res.json(userData.wallet.monthlyIncome,userData.wallet._id)
+        res.json(userData.wallet.monthlyIncome)
     }
     catch(e){
         res.status(400).json({"error":e.message})
@@ -20,14 +20,14 @@ router.get('/',async(req,res)=>{
 router.post('/',async(req,res)=>{
 
     const {amount,salaryDate}=req.body;
-    const {_id}=req.body;
+    const {_id}=req.user;
     const newIncome={amount,salaryDate};
+
     const userData = await User.findById(_id)
-    console.log(userData.wallet)
     const userWallet = await Wallet.findById({_id:userData.wallet});
-    userWallet.monthlyIncome.push(newIncome);
+    userWallet.monthlyIncome=newIncome;
     await userWallet.save();
-    res.json({"message":"Successfully Added New Income Source"})
+    res.json({"message":"Successfully Added Income Source"})
     
 })
 
@@ -43,9 +43,9 @@ router.delete('/',async(req,res)=>{
 })
 
 // modify
-router.put('/',async(req,res)=>{
+// router.put('/',async(req,res)=>{
 
-})
+// })
 
 
 module.exports = router;

@@ -7,16 +7,16 @@ const walletSchema = new mongoose.Schema({
         default:0
     },
 
-    monthlyIncome:[{
+    monthlyIncome:{
         amount:{
             type:Number,
-            required:true,
+            default:0
         },
         salaryDate:{
             type:Date,
-            required:true,
+            default:Date.now
         }
-    }],
+    },
 
     recurringPayments:[{
         name:{

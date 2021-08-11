@@ -26,8 +26,8 @@ export const deletePayment = async(data)=>await API.delete('/recurring',data);
 // Income Sources
 export const getIncome = async()=> await API.get('/income');
 export const createIncome = async(data)=> await API.post('/income',data);
-export const updateIncome = async(data)=> await API.put('/income',data);
-export const deleteIncome = async(data)=> await API.delete('/income',data);
+// export const updateIncome = async(data)=> await API.put('/income',data);
+// export const deleteIncome = async(data)=> await API.delete('/income',data);
 
 // Goals
 export const getGoal = async()=>await API.get('/goals')
@@ -37,3 +37,8 @@ export const deleteGoal = async(data)=>await API.delete('/goals',{data:data})
 
 // Overview
 export const getOverview = async()=>await API.get('/overview/')
+
+// Profile
+export const getProfile = async()=>await API.get('/profile/')
+export const updateProfile = async(data)=>await API.put('/profile/',data)
+

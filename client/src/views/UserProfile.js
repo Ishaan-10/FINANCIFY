@@ -1,4 +1,5 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
+import {getIncome,createIncome,getProfile,updateProfile} from "../API"
 
 // react-bootstrap components
 import {
@@ -14,6 +15,43 @@ import {
 } from "react-bootstrap";
 
 function User() {
+
+  const [data,setData]=useState({});
+  const [profileData,setProfileData]=useState({})
+  const [newAmount,setNewAmount]=useState();
+  const [newDate,setNewDate]=useState();
+  const [newName,setNewName]=useState();
+  const [newEmail,setNewEmail]=useState();
+
+  const fetchIncome=async()=>{
+    await getIncome().then((res)=>{
+      console.log(res.data)
+      setData(res.data)
+    }).catch(e=>console.log(e.message))
+  }
+  const fetchUserProfile=async()=>{
+    await getProfile().then((res)=>{
+      setProfileData(res.data)
+    }).catch(e=>console.log(e.message))
+  }
+
+  const updateUserProfile=async(name,email)=>{
+    // await updateProfile({name,email}).then((res)=>{
+    //   console.log(res.data)
+    // }).catch(e=>console.log(e.message))
+  }
+  
+  const postIncome=async(amount,salaryDate)=>{
+    await createIncome({amount,salaryDate}).then((res)=>{
+      console.log(res.data)
+      fetchIncome()
+    }).catch(e=>console.log(e.message))
+  }
+  useEffect(()=>{
+    fetchIncome()
+    fetchUserProfile()
+  },[])
+
   return (
     <>
       <Container fluid>
@@ -32,30 +70,22 @@ function User() {
                           Email address
                         </label>
                         <Form.Control
-                          defaultValue="abc@xyz"
+                          defaultValue={profileData.email}
                           placeholder="Email"
                           type="email"
+                          onChange={(e)=>setNewEmail(e.target.value)}
                         ></Form.Control>
                       </Form.Group>
                     </Col>
                   </Row>
                   <Row>
-                    <Col className="pr-1" md="6">
+                    <Col className="pl-3" md="12">
                       <Form.Group>
-                        <label>First Name</label>
+                        <label>Name</label>
                         <Form.Control
-                          defaultValue="Mike"
-                          placeholder="Company"
-                          type="text"
-                        ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                    <Col className="pl-1" md="6">
-                      <Form.Group>
-                        <label>Last Name</label>
-                        <Form.Control
-                          defaultValue="Andrew"
-                          placeholder="Last Name"
+                          defaultValue={profileData.name}
+                          placeholder="Name"
+                          onChange={(e)=>setNewName(e.target.value)}
                           type="text"
                         ></Form.Control>
                       </Form.Group>
@@ -63,8 +93,8 @@ function User() {
                   </Row>
                   <Button
                     className="btn-fill pull-right"
-                    type="submit"
                     variant="info"
+                    onClick={()=>updateUserProfile(newName,newEmail)}
                   >
                     Update Profile
                   </Button>
@@ -92,12 +122,15 @@ function User() {
                       className="avatar border-gray"
                       src={require("assets/img/index.png").default}
                     ></img>
-                    <h5 className="title">Mike Andrew</h5>
+                    <h5 className="title">{profileData.name}</h5>
                   </a>
                 </div>
               </Card.Body>
             </Card>
           </Col>
+
+
+
           <Col md="8">
             <Card>
               <Card.Header>
@@ -110,7 +143,8 @@ function User() {
                       <Form.Group>
                         <label>TOTAL INCOME</label>
                         <Form.Control
-                          defaultValue="100000"
+                          defaultValue={data.amount}
+                          onChange={(e)=>setNewAmount(e.target.value)}
                           placeholder="income"
                           type="number"
                         ></Form.Control>
@@ -121,28 +155,18 @@ function User() {
                         <label>Date at which you get your salary</label>
                         <Form.Control
                           placeholder="Date"
+                          defaultValue={new Date(data.salaryDate).toUTCString()}
                           type="date"
+                          onChange={(e)=>setNewDate(e.target.value)}
                         ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pr-1" md="6">
-                      <Form.Group>
-                        <label>Sources of Income</label>
-                        <Form.Control as="select" placeholder="Income Sources" type="dropdown">
-                          <option value="">Income Sources</option>
-                          <option value="Paytm Cashback">Paytm Cashback</option>
-                          <option value="Dadi ne diye">Dadi ne diye</option>
-                          <option value="Others">Others</option>
-                        </Form.Control>
                       </Form.Group>
                     </Col>
                   </Row>
                   <Button
                     className="btn-fill pull-right"
-                    type="submit"
                     variant="info"
+                    onClick={()=>postIncome(newAmount,newDate)}
+
                   >
                     Update Income
                   </Button>
