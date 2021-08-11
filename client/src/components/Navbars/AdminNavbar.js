@@ -184,7 +184,7 @@ function Header() {
               <Nav.Link
                 className="m-0"
                 href="#pablo"
-                style={{color:"white"}}
+                style={{color:"#F07459"}}
                 onClick={logoutUser}
               >
                 <span className="no-icon">Log out</span>
