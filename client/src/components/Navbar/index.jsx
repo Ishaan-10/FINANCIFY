@@ -4,6 +4,8 @@ import {IconContext} from 'react-icons/lib'
 import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavLinks, NavItem, NavBtn, NavBtnLink } from './NavbarElements'
 import { animateScroll as scroll } from 'react-scroll';
 
+import img1 from 'images/favicon.png';
+
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false)
   const changeNav = () => {
@@ -27,7 +29,7 @@ const Navbar = ({ toggle }) => {
     <IconContext.Provider value={{ color: '#fff'}}>
       <Nav scrollNav={scrollNav}>
         <NavbarContainer>
-          <NavLogo to='/' onClick={toggleHome}>Financify</NavLogo>
+          <NavLogo to='/' onClick={toggleHome}><img src={img1} height="30px" width="30px"></img>Financify</NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
