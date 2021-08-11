@@ -118,7 +118,7 @@ function TableList() {
 
 
           <Col md="12">
-            <h3>NEW TRANSACTION FORM</h3>
+            <h3>Add New Transaction</h3>
             <Form>
               <Form.Group>
                 <Form.Label>Name</Form.Label>

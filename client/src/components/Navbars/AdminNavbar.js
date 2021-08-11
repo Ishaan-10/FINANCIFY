@@ -47,8 +47,8 @@ function Header() {
     return "Brand";
   };
   return (
-    <Navbar bg="light" expand="lg">
-      <Container fluid>
+    <Navbar bg="dark"  variant="dark" expand="lg" >
+      <Container fluid >
         <div className="d-flex justify-content-center align-items-center ml-2 ml-lg-0">
           <Button
             variant="dark"
@@ -58,6 +58,7 @@ function Header() {
             <i className="fas fa-ellipsis-v"></i>
           </Button>
           <Navbar.Brand
+            style={{color:"white"}}
             href="#home"
             onClick={(e) => e.preventDefault()}
             className="mr-2"
@@ -123,6 +124,7 @@ function Header() {
               <Nav.Link
                 className="m-0"
                 href="#pablo"
+                style={{color:"white"}}
                 onClick={(e) =>{
                   e.preventDefault()
                   history.push("user")
@@ -182,6 +184,7 @@ function Header() {
               <Nav.Link
                 className="m-0"
                 href="#pablo"
+                style={{color:"white"}}
                 onClick={logoutUser}
               >
                 <span className="no-icon">Log out</span>
