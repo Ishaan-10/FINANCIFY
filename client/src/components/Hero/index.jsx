@@ -12,6 +12,7 @@ import {
   ArrowRight,
 } from "./HeroElements";
 import { Button } from "../ButtonElements";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [hover, setHover] = useState(false);
@@ -32,19 +33,17 @@ const Hero = () => {
           transactions and subscriptions.
         </HeroP>
         <HeroBtnWrapper>
-          <Button
-            to="/signup"
-            onMouseEnter={onHover}
-            onMouseLeave={onHover}
-            primary="true"
-            dark="true"
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact="true"
-            offset={-80}
-          >
-            Get Started {hover ? <ArrowForward /> : <ArrowRight />}
+        <Button onMouseEnter={onHover}
+                onMouseLeave={onHover} 
+                primary='true' 
+                dark='true' 
+                smooth={true} 
+                duration={500} 
+                spy={true} 
+                exact='true' 
+                offset={-80}>
+          <Link to="/signup" style={{color: "white"}}>Get Started </Link> 
+          {hover ? <ArrowForward /> : <ArrowRight/>}
           </Button>
         </HeroBtnWrapper>
       </HeroContent>
