@@ -24,17 +24,17 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
+    path: "/scan",
+    name: "Scan Receipts",
+    icon: "nc-icon nc-zoom-split",
+    component: Scan,
+    layout: "/admin",
+  },
+  {
     path: "/subscription",
     name: "Manage Subs",
     icon: "nc-icon nc-paper-2",
     component: Subscription,
-    layout: "/admin",
-  },
-  {
-    path: "/news",
-    name: "News Feed",
-    icon: "nc-icon nc-atom",
-    component: NewsFeed,
     layout: "/admin",
   },
   {
@@ -52,19 +52,19 @@ const dashboardRoutes = [
   //   layout: "/admin",
   // },
   {
+    path: "/news",
+    name: "News Feed",
+    icon: "nc-icon nc-atom",
+    component: NewsFeed,
+    layout: "/admin",
+  },
+  {
     path: "/user",
     name: "User Profile",
     icon: "nc-icon nc-circle-09",
     component: UserProfile,
     layout: "/admin",
   },
-  {
-    path: "/scan",
-    name: "Scan Receipts",
-    icon: "nc-icon nc-zoom-split",
-    component: Scan,
-    layout: "/admin",
-  }
 ];
 
 export default dashboardRoutes;
