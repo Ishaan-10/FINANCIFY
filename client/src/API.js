@@ -15,13 +15,13 @@ export const test = async ()=>await API.get('/')
 export const getTransaction = async()=>await API.get('/transaction');
 export const createTransaction = async(data)=>await API.post('/transaction',data);
 export const updateTransaction = async(data)=>await API.put('/transaction',data);
-export const deleteTransaction = async(data)=>await API.delete('/transaction',data);
+export const deleteTransaction = async(data)=>await API.delete('/transaction',{data:data});
 
 // Recurring Payments
 export const getPayment = async()=>await API.get('/recurring');
 export const createPayment = async(data)=>await API.post('/recurring',data);
 export const updatePayment = async(data)=>await API.put('/recurring',data);
-export const deletePayment = async(data)=>await API.delete('/recurring',data);
+export const deletePayment = async(data)=>await API.delete('/recurring',{data:data});
 
 // Income Sources
 export const getIncome = async()=> await API.get('/income');
