@@ -14,6 +14,7 @@ import {
 import { signIn } from "API";
 import { useHistory } from "react-router";
 import { Spinner } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const Signin = () => {
   const history = useHistory();
@@ -66,8 +67,7 @@ const Signin = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <FormButton onClick={formSubmitHandler}>Continue</FormButton>
-                  <Text><a href="/signup">Don't have an account?</a></Text>
-                  <Text>Forgot password</Text>
+                  <Link to="/signup" className="text-center mt-4">Don't have an account?</Link>
                 </Form>
               </FormContent>
             </FormWrap>

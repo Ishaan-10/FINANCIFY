@@ -18,12 +18,13 @@ import {
 import { Spinner } from 'react-bootstrap';
 
 export default function Scan() {
-    const [modalShow, setModalShow] = React.useState(false);
+    const [modalShow, setModalShow] = useState(false);
     const [imagePath, setImagePath] = useState("");
     const [text, setText] = useState("");
     const [confidence,setConfidence]=useState("");
     const [loading,setLoading]=useState(false);
     const [five,setFive]=useState([]);
+    const [modalNumber,setmodalNumber]=useState(0);
 
     const handleChange = (event) => {
         setImagePath(URL.createObjectURL(event.target.files[0]));
@@ -53,18 +54,15 @@ export default function Scan() {
       }
     
       const analyzeResult = (data)=>{
-        const wordsArray = data.words.map(word=>{
-          return parseInt(word.text)
-        })
+
+        const wordsArray = data.words.map(word=>parseInt(word.text))
 
         const numbers = wordsArray.filter(word=> !Object.is(NaN,word))
-        const numbersSorted = numbers.sort(function(a, b) {
-          return a - b;
-        });
+        const numbersSorted = numbers.sort((a, b)=>a - b);
         console.log(numbersSorted)
-        const topFiveNums = numbersSorted.slice(numbersSorted.length-5)
+        const topFiveNums = numbersSorted.slice(numbersSorted.length-3)
         console.log(topFiveNums)
-        return topFiveNums;
+        return topFiveNums.reverse();
       }
     
 
@@ -82,18 +80,23 @@ export default function Scan() {
               </Form.Group>
             </Card.Body>
           </Col>
-          <Col md="2">
-            <Button className="btn-fill pull-right" variant="info" onClick={() => setModalShow(true)}>200</Button>
-            <Modal show={modalShow} onHide={() => setModalShow(false)}/>
-          </Col>
-          <Col md="2">
-            <Button className="btn-fill pull-right" variant="info" onClick={() => setModalShow(true)}>300</Button>
-            <Modal show={modalShow} onHide={() => setModalShow(false)}/>
-          </Col>
-          <Col md="2">
-            <Button className="btn-fill pull-right" variant="info" onClick={() => setModalShow(true)}>400</Button>
-            <Modal show={modalShow} onHide={() => setModalShow(false)}/>
-          </Col>
+          {five.map((one,index)=>{
+            return (
+              <Col>
+              <Button className="btn-fill pull-right" variant="info"
+              onClick={() =>{
+                setmodalNumber(one)
+                setModalShow(true)
+              }}>
+              {one}
+              </Button>
+              <Modal amount={modalNumber} show={modalShow} onHide={() => setModalShow(false)}/>
+            </Col>
+            )
+            }
+          )
+          }
+
         </Row>
         <Row>
           <Col md="6">
@@ -101,7 +104,7 @@ export default function Scan() {
             <Button className="btn-fill pull-right" variant="success" type="submit" onClick={handleClick}>Convert To Text</Button>
             <div>
               <br></br>
-              <img src={imagePath} style={{height:200,width:200}} />
+              <img src={imagePath} className="my-2" style={{width:400}} />
             </div>
             </Card.Body>
           </Col>

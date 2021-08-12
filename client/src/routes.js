@@ -44,13 +44,6 @@ const dashboardRoutes = [
     component: Goals,
     layout: "/admin",
   },
-  // {
-  //   path: "/notifications",
-  //   name: "Notifications",
-  //   icon: "nc-icon nc-bell-55",
-  //   component: Notifications,
-  //   layout: "/admin",
-  // },
   {
     path: "/news",
     name: "News Feed",
