@@ -58,7 +58,38 @@ router.put('/', async (req, res) => {
         res.status(400).json({ "error": e.message })
     }
 
+})
+router.put('/addamount', async (req, res) => {
+    try {
+        const { goals_id,amountToBeAdded } = req.body;
+        const updateGoals = await Goal.findById(goals_id);
+        updateGoals.currentAmount+=amountToBeAdded;
 
+        if(updateGoals.currentAmount>=updateGoals.targetAmount){
+            updateGoals.currentAmount=updateGoals.targetAmount;
+            updateGoals.completed=true;
+        }
+        await updateGoals.save();
+
+        res.status(200).json({ "message": "successfully updated" })
+
+    } catch (e) {
+        res.status(400).json({ "error": e.message })
+    }
+})
+
+router.put('/completed', async (req, res) => {
+    try {
+        const { goals_id} = req.body;
+        const updateGoals = await Goal.findById(goals_id);
+        updateGoals.completed=true;
+        updateGoals.currentAmount=updateGoals.targetAmount;
+        await updateGoals.save();
+        res.status(200).json({ "message": "successfully updated" })
+
+    } catch (e) {
+        res.status(400).json({ "error": e.message })
+    }
 })
 
 
