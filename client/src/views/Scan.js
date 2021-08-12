@@ -29,6 +29,9 @@ export default function Scan() {
     const handleChange = (event) => {
         setImagePath(URL.createObjectURL(event.target.files[0]));
     }
+    const closeModel = ()=>{
+      setModalShow(false)
+    }
 
     const handleClick = () => {
         setLoading(true)
@@ -90,7 +93,7 @@ export default function Scan() {
               }}>
               {one}
               </Button>
-              <Modal amount={modalNumber} show={modalShow} onHide={() => setModalShow(false)}/>
+              <Modal closeModel={closeModel} amount={modalNumber} show={modalShow} onHide={() => setModalShow(false)}/>
             </Col>
             )
             }
