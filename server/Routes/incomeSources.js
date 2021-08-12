@@ -24,7 +24,7 @@ router.post('/',async(req,res)=>{
     const newIncome={amount,salaryDate};
 
     const userData = await User.findById(_id)
-    const userWallet = await Wallet.findById({_id:userData.wallet});
+    const userWallet = await Wallet.findByIdAndUpdate({_id:userData.wallet});
     userWallet.monthlyIncome=newIncome;
     await userWallet.save();
     res.json({"message":"Successfully Added Income Source"})

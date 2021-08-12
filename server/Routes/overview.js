@@ -13,6 +13,7 @@ router.get('/',async(req,res)=>{
         const data = {
             totalAmountSpent: userData.wallet.amountSpent,
             monthlyIncome:userData.wallet.monthlyIncome.amount,
+            monthlyIncomeDate:userData.wallet.monthlyIncome.salaryDate,
             transactionsCount:userData.wallet.transactions.length,
             recurringCount:userData.wallet.recurringPayments.length,
             recentTransactions:userData.wallet.transactions.slice(userData.wallet.transactions.length-5),
