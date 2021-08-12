@@ -44,7 +44,7 @@ const walletSchema = new mongoose.Schema({
         },
         category:{
             type:String,
-            enum:["Household","Electronics","Others"]
+            enum:["Household","Electronics","Others","Fashion","Sports and Fitness","Automobile","Baby Care"]
         },
         amount:{
             type:Number,

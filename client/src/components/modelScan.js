@@ -24,6 +24,7 @@ export default function modelScan(props) {
   const newTransaction = (e) => {
     e.preventDefault()
     createTransaction(transactionData).then(async res => {
+      props.closeModel()
       await fetchData()
     }).catch(e => console.log(e.message))
   }
@@ -35,12 +36,9 @@ export default function modelScan(props) {
       aria-labelledby="contained-modal-title-vcenter"
     >
       <Modal.Header closeButton>
-        <Modal.Title as="h2" id="contained-modal-title-vcenter">
-          Add Transaction
-        </Modal.Title>
+          <span className="h3 b2">Add New Transaction</span>
       </Modal.Header>
       <Modal.Body>
-        <hr></hr>
         <Form>
               <Form.Group>
                 <Form.Label>Name</Form.Label>
@@ -62,7 +60,7 @@ export default function modelScan(props) {
                     placeholder="Enter the Amount"
                     value={props.amount}
                     // onChange={(e) => setNewAmount(e.target.value)}
-                    required
+                    disabled
                   />
                 </Form.Group>
               </Form.Row>
@@ -108,11 +106,17 @@ export default function modelScan(props) {
                   ></Form.Control>
                 </Form.Group>
               </Form.Row>
-              <Button  className="btn-fill pull-right" variant="success" type="submit" 
+              <Button  className="btn-fill pull-right" variant="success" 
               onClick={newTransaction}
               >
                 Add
               </Button>
+              <Button  className="btn-fill pull-right ml-2" variant="info" 
+              onClick={props.closeModel}
+              >
+                Close
+              </Button>
+
               <br />
             </Form>
       </Modal.Body>
