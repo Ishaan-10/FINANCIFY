@@ -3,11 +3,12 @@ const router = express.Router();
 const User = require("../Models/User");
 const Wallet = require("../Models/Wallet");
 const passport = require('passport');
+const { isLoggedIn } = require('../middlewares');
 
 router.post('/login', (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
         if (err) throw err;
-        if (!user) res.status(400).json({message:"No User Exists"});
+        if (!user) res.status(400).json({ message: "No User Exists" });
         else {
             req.logIn(user, (err) => {
                 if (err) throw err;
@@ -32,18 +33,18 @@ router.post('/register', async (req, res, next) => {
 
     req.login(registeredUser, err => {
         if (err) { return next(err); }
-        
+
     });
     res.json(req.user)
 
 });
 
-router.get('/logout',async(req,res)=>{
-    try{
+router.get('/logout', async (req, res) => {
+    try {
         req.logout();
-        res.json({"message":"Succesfully Logged out","redirectUrl":"/"})
-    }catch(e){
-        res.status(400).json({"error":e.message})
+        res.json({ "message": "Succesfully Logged out", "redirectUrl": "/" })
+    } catch (e) {
+        res.status(400).json({ "error": e.message })
     }
 
 })

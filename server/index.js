@@ -17,10 +17,11 @@ const profile = require('./Routes/profile');
 const overview = require('./Routes/overview');
 const incomeSource = require('./Routes/incomeSources');
 const recurring = require('./Routes/recurringPayments');
-var cors = require('cors')
+var cors = require('cors');
+const { isLoggedIn } = require('./middlewares');
 app.use(cors({
-  origin:"http://localhost:3000",
-  credentials:true
+  origin: "http://localhost:3000",
+  credentials: true
 
 }));
 app.use(morgan('tiny'));
@@ -55,7 +56,7 @@ const sessionConfig = {
   }
 }
 
-app.use(urlencoded({extended:true}))
+app.use(urlencoded({ extended: true }))
 app.use(express.json())
 app.use(session(sessionConfig));
 app.use(passport.initialize());
@@ -72,12 +73,12 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use('/', basicRoutes);
 app.use('/auth', authRoutes);
-app.use('/transaction', transactions);
-app.use('/goals', goals);
-app.use('/income', incomeSource);
-app.use('/recurring', recurring);
-app.use('/overview', overview);
-app.use('/profile', profile);
+app.use('/transaction', isLoggedIn, transactions);
+app.use('/goals', isLoggedIn, goals);
+app.use('/income', isLoggedIn, incomeSource);
+app.use('/recurring', isLoggedIn, recurring);
+app.use('/overview', isLoggedIn, overview);
+app.use('/profile', isLoggedIn, profile);
 
 
 const PORT = process.env.PORT || 3001;
