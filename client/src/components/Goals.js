@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import {
   Badge,
@@ -6,20 +6,34 @@ import {
   Card,
   Form,
   ProgressBar,
-  Container,
-  Row,
-  Col,
 } from "react-bootstrap";
 var moment = require('moment');
 
 export default function Goals(props) {
   const percentage = parseInt((props.currentAmount) / (props.targetAmount) * 100);
-  const id=props.goals_id;
+  const id = props.goals_id;
+  const endDate = moment(props.endDate);
+  const startDate = moment(props.startDate);
+  const daysLeft = (endDate.diff(moment(), 'days') + 1)
+  const [amountToAdd, setAmountToAdd] = useState(0);
+  const barColor = props.completed ? "success" : "primary";
+
+
   return (
     <>
-      <Card>
+      <Card >
         <Card.Header>
-          <Card.Title as="h3">{props.goal}</Card.Title>
+          <Card.Title as="h3" >
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div>{props.goal}
+               {!props.completed && <Button className="mx-2 btn btn-sm btn-fill">{daysLeft} Days Left</Button>}
+              </div>
+              <div>
+                <Button className="btn btn-fill mx-1 btn-primary btn-sm"
+                  onClick={() => props.markCompleted(id)}
+                >Mark as completed</Button></div>
+            </div>
+          </Card.Title>
         </Card.Header>
 
         <Card.Body>
@@ -32,20 +46,24 @@ export default function Goals(props) {
             </div>
           </div>
           <div className="progressBar my-1" style={{ fontSize: "15px" }}>
-            <ProgressBar animated now={percentage} label={`${percentage}% completed`} />
+            <ProgressBar animated variant={barColor} now={percentage} label={`${percentage}% completed`} />
           </div>
           <div className="mt-2">
-          <Form className="form-inline float-right">
+            <Form className="form-inline float-right">
               <Form.Control
                 placeholder="Add Amount"
                 type="Number"
+                min="0"
+                value={amountToAdd}
+                onChange={(e) => setAmountToAdd(e.target.valueAsNumber)}
               ></Form.Control>
-              <Form.Control
-                type="Date"
-              ></Form.Control>
-              <Button className="btn btn-fill mx-1">Update Goal</Button>
-              <Button className="btn btn-fill mx-1 btn-danger" onClick={()=>props.deleteGoal(id)}>Delete Goal</Button>
-          </Form>
+              <Button className="btn btn-fill mx-1"
+                onClick={() => {
+                  props.updateAmount(id, amountToAdd)
+                }}
+              >Add Money</Button>
+              <Button className="btn btn-fill mx-1 btn-danger" onClick={() => props.deleteGoal(id)}>Delete Goal</Button>
+            </Form>
             <span>Deadline: {moment(props.endDate).format("DD/MM/YYYY")} </span>
             <br />
             <span>Date set: {moment(props.startDate).format("DD/MM/YYYY")} </span>
