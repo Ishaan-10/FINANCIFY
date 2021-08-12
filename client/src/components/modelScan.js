@@ -1,6 +1,5 @@
-import React from 'react'
-import props from 'prop-types';
-
+import React,{useState} from 'react'
+import { createTransaction } from "API";
 import {
     Badge,
     Modal,
@@ -14,12 +13,26 @@ import {
   } from "react-bootstrap";
 
 export default function modelScan(props) {
+  const [newName, setNewName] = useState("");
+  const [newCategory, setNewCategory] = useState("");
+  // const [newAmount, setNewAmount] = useState(props.amount);
+  const [newDate, setNewDate] = useState("");
+  const [newPaymentMode, setNewPaymentMode] = useState("");
+  const transactionData = {
+    name: newName, category: newCategory, amount: props.amount, date: newDate, paymentMode: newPaymentMode
+  }
+  const newTransaction = (e) => {
+    e.preventDefault()
+    createTransaction(transactionData).then(async res => {
+      await fetchData()
+    }).catch(e => console.log(e.message))
+  }
+
     return (
         <Modal
       {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
-      top
     >
       <Modal.Header closeButton>
         <Modal.Title as="h2" id="contained-modal-title-vcenter">
@@ -34,8 +47,8 @@ export default function modelScan(props) {
                 <Form.Row>
                   <Col>
                     <Form.Control placeholder="Name of the Transaction"
-                    //   value={newName}
-                    //   onChange={(e) => setNewName(e.target.value)}
+                      value={newName}
+                      onChange={(e) => setNewName(e.target.value)}
                       required
                     ></Form.Control>
                   </Col>
@@ -47,7 +60,7 @@ export default function modelScan(props) {
                   <Form.Control
                     type="number"
                     placeholder="Enter the Amount"
-                    // value={newAmount}
+                    value={props.amount}
                     // onChange={(e) => setNewAmount(e.target.value)}
                     required
                   />
@@ -57,7 +70,7 @@ export default function modelScan(props) {
                 <Form.Group as={Col} controlId="formGridCat">
                   <Form.Label>Category</Form.Label>
                   <Form.Control as="select"
-                    // onChange={(e) => setNewCategory(e.target.value)}
+                    onChange={(e) => setNewCategory(e.target.value)}
                     required
                   >
                     <option value="">Choose...</option>
@@ -73,7 +86,7 @@ export default function modelScan(props) {
                 <Form.Group as={Col}>
                   <Form.Label>Mode of Payment</Form.Label>
                   <Form.Control as="select"
-                    // onChange={(e) => setNewPaymentMode(e.target.value)}
+                    onChange={(e) => setNewPaymentMode(e.target.value)}
                     required
                   >
                     <option value="">Choose...</option>
@@ -91,14 +104,14 @@ export default function modelScan(props) {
                   <Form.Control
                     placeholder="Date"
                     type="date"
-                    // onChange={e => setNewDate(e.target.valueAsDate)}
+                    onChange={e => setNewDate(e.target.valueAsDate)}
                   ></Form.Control>
                 </Form.Group>
               </Form.Row>
               <Button  className="btn-fill pull-right" variant="success" type="submit" 
-            //   onClick={newTransaction}
+              onClick={newTransaction}
               >
-                Submit
+                Add
               </Button>
               <br />
             </Form>

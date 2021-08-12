@@ -19,6 +19,7 @@ import {
   OverlayTrigger,
   Tooltip,
 } from "react-bootstrap";
+import { getTransaction, createTransaction, updateTransaction, deleteTransaction } from "API";
 
 function Dashboard() {
 
@@ -32,12 +33,12 @@ function Dashboard() {
       console.log(e.message)
     })
   }
-  // goals: [{…}]
-  // monthlyIncome: 0
-  // recentTransactions: (5) [{…}, {…}, {…}, {…}, {…}]
-  // recurringCount: 2
-  // totalAmountSpent: 222
-  // transactionsCount: 5
+  const deleteTrans = async (id) => {
+    const data = { transaction_id: id }
+    deleteTransaction(data).then(async res => {
+      await getData()
+    }).catch(e => console.log(e.message))
+  }
 
 
   useEffect(()=>{
@@ -183,6 +184,7 @@ function Dashboard() {
                           category={transaction.category}
                           date={transaction.date}
                           paymentMode={transaction.paymentMode}
+                          deleteTransaction={deleteTrans}
                           _id={transaction._id}
                         />
                       )

@@ -43,6 +43,14 @@ function Typography() {
     }).catch(e => console.log(e.message))
   }
 
+  const deleteSubscription = async(id)=>{
+    await deletePayment({rpayment_id:id}).then(res=>{
+      console.log(res.data);
+      fetchData()
+    }).catch(e=>console.log(e))
+  }
+
+
   useEffect(async () => {
     fetchData()
   }, [])
@@ -76,6 +84,8 @@ function Typography() {
                           amount={subscription.amount}
                           repeatDuration={subscription.repeatDuration}
                           date={subscription.date}
+                          deleteSubscription={deleteSubscription}
+                          _id={subscription._id}
                         />
                       )
                     })}
