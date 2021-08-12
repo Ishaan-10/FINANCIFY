@@ -1,4 +1,5 @@
 const express = require('express');
+const { isLoggedIn } = require('../middlewares');
 const router = express.Router();
 const User = require('../Models/User')
 const Wallet = require('../Models/Wallet')
