@@ -19,7 +19,7 @@ const Hero = () => {
         <HeroH1>Managing Finances Made Easy</HeroH1>
         <HeroP>Create a new account and keep a track record of all your finances, transactions and subscriptions.</HeroP>
         <HeroBtnWrapper>
-          <Button to="/signup" onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='true' smooth={true} duration={500} spy={true} exact='true' offset={-80}>
+          <Button to='/signup' onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='true' smooth={true} duration={500} spy={true} exact='true' offset={-80}>
             Get Started {hover ? <ArrowForward /> : <ArrowRight/>}
           </Button>
         </HeroBtnWrapper>

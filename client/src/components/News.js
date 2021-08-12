@@ -24,7 +24,7 @@ export default function News() {
               <img class="" src={img1} alt="Card image cap" height="295" widht="380"></img>
             </div>
             <div class="card-body">
-              <img src={img3} height="100px"></img>
+              <img src={img3} height="125px"></img>
               <hr></hr>
               <h4 class="card-title">50% savings on electronics</h4>
               <hr></hr>
@@ -42,7 +42,7 @@ export default function News() {
               <img class="" src={img2} alt="Card image cap" height="280" widht="280"></img>
             </div>
             <div class="card-body">
-              <img src={img4} height="100px"></img>
+              <img src={img4} height="85px"></img>
               <hr></hr>
               <h4 class="card-title">60% savings on clothing and footwear</h4>
               <hr></hr>
