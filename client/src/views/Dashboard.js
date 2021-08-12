@@ -1,35 +1,49 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import ChartistGraph from "react-chartist";
 import TransactionRow from "components/TransactionRow";
 import { getOverview } from "API";
 import OverviewGoalsRow from "components/OverviewGoalsRow";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // react-bootstrap components
 import {
-  Badge,
-  Button,
   Card,
-  Navbar,
-  Nav,
   Table,
   Container,
   Row,
   Col,
-  Form,
-  OverlayTrigger,
-  Tooltip,
 } from "react-bootstrap";
-import { getTransaction, createTransaction, updateTransaction, deleteTransaction } from "API";
+import { deleteTransaction } from "API";
 
 function Dashboard() {
 
-  const [data,setData]=useState({});
+  const notifySuccess = (message) => toast.success(message, {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+  const notifyFailure = () => toast.error("An Error Occured", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
 
-  const getData = async()=>{
-    await getOverview().then(res=>{
+  const [data, setData] = useState({});
+
+  const getData = async () => {
+    await getOverview().then(res => {
       console.log(res.data)
       setData(res.data)
-    }).catch(e=>{
+    }).catch(e => {
       console.log(e.message)
     })
   }
@@ -37,16 +51,18 @@ function Dashboard() {
     const data = { transaction_id: id }
     deleteTransaction(data).then(async res => {
       await getData()
-    }).catch(e => console.log(e.message))
+      notifySuccess("Successfully Deleted")
+    }).catch(e => notifyFailure())
   }
 
 
-  useEffect(()=>{
-     getData()
-  },[])
+  useEffect(() => {
+    getData()
+  }, [])
 
   return (
     <>
+      <ToastContainer />
       <Container fluid>
         <Row>
           <Col lg="3" sm="6">
@@ -69,8 +85,8 @@ function Dashboard() {
               <Card.Footer>
                 <hr></hr>
                 <div className="stats">
-                  <i className="fas fa-redo mr-1"></i>
-                  Update Now
+                  <i className="far fa-calendar-alt mr-1"></i>
+                  This Month
                 </div>
               </Card.Footer>
             </Card>
@@ -96,7 +112,7 @@ function Dashboard() {
                 <hr></hr>
                 <div className="stats">
                   <i className="far fa-calendar-alt mr-1"></i>
-                  Last day
+                  This Month
                 </div>
               </Card.Footer>
             </Card>
@@ -121,8 +137,8 @@ function Dashboard() {
               <Card.Footer>
                 <hr></hr>
                 <div className="stats">
-                  <i className="far fa-clock-o mr-1"></i>
-                  In the last hour
+                  <i class="far fa-money-bill-alt mr-1"></i>
+                  This Month
                 </div>
               </Card.Footer>
             </Card>
@@ -147,8 +163,8 @@ function Dashboard() {
               <Card.Footer>
                 <hr></hr>
                 <div className="stats">
-                  <i className="fas fa-redo mr-1"></i>
-                  Update now
+                  <i class="far fa-money-bill-alt mr-1"></i>
+                  This Month
                 </div>
               </Card.Footer>
             </Card>
@@ -174,7 +190,7 @@ function Dashboard() {
                     </tr>
                   </thead>
                   <tbody>
-                  {data.recentTransactions?.map((transaction, index) => {
+                    {data.recentTransactions?.map((transaction, index) => {
                       return (
                         <TransactionRow
                           key={index}
@@ -279,10 +295,10 @@ function Dashboard() {
                 <div className="table-full-width">
                   <Table>
                     <tbody>
-                      {data.goals?.map((goal,index)=>{
-                          return <OverviewGoalsRow
+                      {data.goals?.map((goal, index) => {
+                        return <OverviewGoalsRow
                           goal={goal.goal}
-                           />   
+                        />
                       })}
 
                     </tbody>

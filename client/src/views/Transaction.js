@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import TransactionRow from "components/TransactionRow";
 import { getTransaction, createTransaction, updateTransaction, deleteTransaction } from "API";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // react-bootstrap components
 import {
   Badge,
@@ -19,6 +20,25 @@ import {
 } from "react-bootstrap";
 
 function TableList() {
+
+  const notifySuccess = (message) => toast.success(message, {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+  const notifyFailure = ()=>toast.error("An Error Occured", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
 
   const [data, setData] = useState([]);
   const [newName, setNewName] = useState("");
@@ -48,26 +68,28 @@ function TableList() {
     e.preventDefault()
     createTransaction(transactionData).then(async res => {
       await fetchData()
-    }).catch(e => console.log(e.message))
+      notifySuccess("Successfully Added")
+    }).catch(e => notifyFailure())
   }
 
   const updateTrans = (data) => {
     createTransaction(data).then(res => {
-      console.log(data);
-    }).catch(e => console.log(e.message))
+      notifySuccess("Successfully Updated")
+    }).catch(e => notifyFailure())
   }
 
   const deleteTrans = async (id) => {
     const data = { transaction_id: id }
     deleteTransaction(data).then(async res => {
       await fetchData()
-      console.log(data);
-    }).catch(e => console.log(e.message))
+      notifySuccess("Successfully Deleted")
+    }).catch(e => notifyFailure())
   }
 
 
   return (
     <>
+      <ToastContainer />
       <Container fluid>
         <Row>
           <Col md="12">

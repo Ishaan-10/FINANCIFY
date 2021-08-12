@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import Tesseract from 'tesseract.js';
 import Modal from "components/modelScan";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
     Badge,
     Button,
@@ -26,6 +28,25 @@ export default function Scan() {
     const [five,setFive]=useState([]);
     const [modalNumber,setmodalNumber]=useState(0);
 
+    const notifySuccess = (message) => toast.success(message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+    const notifyFailure = ()=>toast.error("An Error Occured", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+
     const handleChange = (event) => {
         setImagePath(URL.createObjectURL(event.target.files[0]));
     }
@@ -35,6 +56,7 @@ export default function Scan() {
 
     const handleClick = () => {
         setLoading(true)
+        notifySuccess("Job started , it may take few minutes")
         Tesseract.recognize(
           imagePath,'eng',
           { 
@@ -44,12 +66,14 @@ export default function Scan() {
         .catch (err => {
           console.error(err);
           setLoading(false)
+          notifyFailure()
         })
         .then(result => {
           setLoading(false)
           console.log(result)
           const confidence = result.data.confidence;
           const text = result.data.text;
+          notifySuccess("Job completed")
           setText(text);
           setFive(analyzeResult(result.data))
           setConfidence(confidence);
@@ -67,10 +91,9 @@ export default function Scan() {
         console.log(topFiveNums)
         return topFiveNums.reverse();
       }
-    
-
     return (
         <>
+        <ToastContainer />
         <Card classname="text-center" border="dark" style={{ width: '80rem' }}>
         <Card.Header as="h3">Scan Your Receipts</Card.Header>
         <hr></hr>
