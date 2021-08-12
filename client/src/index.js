@@ -13,6 +13,8 @@ import AdminLayout from "layouts/Admin.js";
 import Home from './pages';
 import SigninPage from './pages/signin';
 import SignupPage from './pages/signup';
+import NotFound from './components/NotFound';
+
 
 ReactDOM.render(
   <BrowserRouter>
@@ -21,6 +23,7 @@ ReactDOM.render(
       <Route path='/home' component={Home} exact />
       <Route path='/signin' component={SigninPage} exact />
       <Route path='/signup' component={SignupPage} exact />
+      <Route component={NotFound} />
       <Redirect from="/" to="/home" />
     </Switch>
   </BrowserRouter>,

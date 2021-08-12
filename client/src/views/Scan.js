@@ -94,7 +94,7 @@ export default function Scan() {
     return (
         <>
         <ToastContainer />
-        <Card classname="text-center" border="dark" style={{ width: '80rem' }}>
+        <Card classname="text-center" border="dark" style={{ width: 'auto' }}>
         <Card.Header as="h3">Scan Your Receipts</Card.Header>
         <hr></hr>
         <Row>
