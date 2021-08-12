@@ -3,12 +3,9 @@ import {getIncome,createIncome,getProfile,updateProfile} from "../API"
 
 // react-bootstrap components
 import {
-  Badge,
   Button,
   Card,
   Form,
-  Navbar,
-  Nav,
   Container,
   Row,
   Col,
@@ -36,11 +33,11 @@ function User() {
     }).catch(e=>console.log(e.message))
   }
 
-  const updateUserProfile=async(name,email)=>{
-    // await updateProfile({name,email}).then((res)=>{
-    //   console.log(res.data)
-    // }).catch(e=>console.log(e.message))
-  }
+  // const updateUserProfile=async(name,email)=>{
+  //   await updateProfile({name,email}).then((res)=>{
+  //     console.log(res.data)
+  //   }).catch(e=>console.log(e.message))
+  // }
   
   const postIncome=async(amount,salaryDate)=>{
     await createIncome({amount,salaryDate}).then((res)=>{
@@ -164,7 +161,6 @@ function User() {
                     className="btn-fill pull-right"
                     variant="info"
                     onClick={()=>postIncome(newAmount,newDate)}
-
                   >
                     Update Income
                   </Button>

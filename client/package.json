@@ -22,6 +22,7 @@
     "react-scripts": "4.0.1",
     "react-scroll": "^1.8.3",
     "react-step-progress-bar": "^1.0.3",
+    "react-toastify": "^7.0.4",
     "styled-components": "^5.3.0",
     "tesseract.js": "^2.1.1"
   },

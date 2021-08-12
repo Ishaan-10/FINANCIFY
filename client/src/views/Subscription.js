@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SubscriptionRow from "components/SubscriptionRow";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // react-bootstrap components
 import {
@@ -17,6 +19,26 @@ import {
 import { getPayment, createPayment, deletePayment, updatePayment } from 'API';
 
 function Typography() {
+
+  const notifySuccess = (message) => toast.success(message, {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+  const notifyFailure = ()=>toast.error("An Error Occured", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+  
   const [data, setData] = useState([]);
   const [newName, setNewName] = useState("")
   const [newAmount, setNewAmount] = useState("")
@@ -39,15 +61,17 @@ function Typography() {
     e.preventDefault()
     await createPayment(paymentData).then(async res => {
       console.log(res.data)
+      notifySuccess("Added new subscription")
       await fetchData()
-    }).catch(e => console.log(e.message))
+    }).catch(e => notifyFailure())
   }
 
   const deleteSubscription = async(id)=>{
     await deletePayment({rpayment_id:id}).then(res=>{
       console.log(res.data);
+      notifySuccess("Successfully Deleted")
       fetchData()
-    }).catch(e=>console.log(e))
+    }).catch(e=>notifyFailure())
   }
 
 
@@ -56,6 +80,7 @@ function Typography() {
   }, [])
   return (
     <>
+    <ToastContainer />
       <Container fluid>
         <Row>
           <Col md="12">

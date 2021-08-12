@@ -4,8 +4,6 @@ import Transaction from "views/Transaction";
 import Subscription from "views/Subscription.js";
 import NewsFeed from "views/NewsFeed";
 import Goals from "views/Goals.js";
-import Notifications from "views/Notifications.js";
-import Upgrade from "views/Upgrade.js";
 import Scan from "views/Scan";
 
 const dashboardRoutes = [

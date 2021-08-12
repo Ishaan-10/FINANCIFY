@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { getGoal, setGoal, updateGoal, deleteGoal,addAmount,completeGoal} from "API";
 import Goals from "../components/Goals";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 var moment = require('moment');
 // react-bootstrap components
 import {
@@ -15,6 +18,25 @@ import {
 } from "react-bootstrap";
 
 function Maps() {
+
+  const notifySuccess = (message) => toast.success(message, {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+  const notifyFailure = ()=>toast.error("An Error Occured", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
 
   const [allGoals, setAllGoals] = useState([]);
   // 
@@ -33,26 +55,29 @@ function Maps() {
     }).catch(e => console.log(e.message))
   }
   const createNewGoal = async (e) => {
-    await setGoal(newGoalData).then(res=>console.log(res)).catch(e=>console.log(res))
+    await setGoal(newGoalData).then(()=>notifySuccess("Successfully Added New Goal")).catch(e=>notifyFailure())
     fetchGoals()
   }
   const deleteOneGoal = async (goals_id)=>{
     console.log("trying to delete")
     await deleteGoal({goals_id}).then(()=>{
+      notifySuccess("Successfully Deleted")
       fetchGoals()
-    }).catch(e=>console.log(e.message))
+    }).catch(e=>notifyFailure())
   }
   const updateCurrentAmount = async(id,amount)=>{
     await addAmount({ goals_id:id,amountToBeAdded:amount }).then(res=>{
       console.log(res.data)
+      notifySuccess("Successfully Updated")
       fetchGoals()
-    }).catch(e=>console.log(e.message))
+    }).catch(e=>notifyFailure())
   }
   const markCompleted=async(id)=>{
     await completeGoal({goals_id:id}).then(res=>{
       console.log(res.data)
       fetchGoals()
-    }).catch(e=>console.log(e.message))
+      notifySuccess("Marked Completed")
+    }).catch(e=>notifyFailure())
   }
 
   useEffect(() => {
@@ -62,6 +87,7 @@ function Maps() {
 
   return (
     <>
+      <ToastContainer />
       <Container fluid>
         <Row>
           <Col md="12">
