@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getGoal, setGoal, updateGoal, deleteGoal } from "API";
+import { getGoal, setGoal, updateGoal, deleteGoal,addAmount,completeGoal} from "API";
 import Goals from "../components/Goals";
 var moment = require('moment');
 // react-bootstrap components
@@ -42,6 +42,18 @@ function Maps() {
       fetchGoals()
     }).catch(e=>console.log(e.message))
   }
+  const updateCurrentAmount = async(id,amount)=>{
+    await addAmount({ goals_id:id,amountToBeAdded:amount }).then(res=>{
+      console.log(res.data)
+      fetchGoals()
+    }).catch(e=>console.log(e.message))
+  }
+  const markCompleted=async(id)=>{
+    await completeGoal({goals_id:id}).then(res=>{
+      console.log(res.data)
+      fetchGoals()
+    }).catch(e=>console.log(e.message))
+  }
 
   useEffect(() => {
     fetchGoals()
@@ -63,7 +75,9 @@ function Maps() {
               completed={goal.completed}
               startDate={goal.startDate}
               goals_id={goal._id}
+              updateAmount={updateCurrentAmount}
               deleteGoal={deleteOneGoal}
+              markCompleted={markCompleted}
               />
             )
           })
