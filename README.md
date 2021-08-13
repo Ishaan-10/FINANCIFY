@@ -163,4 +163,4 @@ Distributed under the MIT License. See `LICENSE` for more information.-->
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/adamaymann7
-<!-- [product-screenshot]: images/screenshot.png -->
+[product-screenshot]: client/src/images/landing.png
