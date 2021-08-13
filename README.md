@@ -166,7 +166,7 @@ Distributed under the MIT License. See `LICENSE` for more information.-->
 [stars-shield]: https://img.shields.io/github/stars/Ishaan-10/Fintech-app.svg?style=for-the-badge
 [stars-url]: https://github.com/Ishaan-10/Fintech-app/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Ishaan-10/Fintech-app.svg?style=for-the-badge
-<!-- [issues-url]: https://github.com/Ishaan-10/Fintech-app/issues -->
+[issues-url]: https://github.com/Ishaan-10/Fintech-app/issues
 <!-- [license-shield]: https://img.shields.io/github/license/Ishaan-10/Fintech-app.svg?style=for-the-badge
 [license-url]: https://github.com/Ishaan-10/Fintech-app/blob/master/LICENSE.txt -->
 <!-- [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555 -->
