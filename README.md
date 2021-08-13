@@ -109,8 +109,12 @@ This is an example of how to list things you need to use the software and how to
    cd server
    npm install
    ```
-3. Add your env file in server directory.
-4. Start the server and react-script
+3. Create your env file in server directory. Add the below mentioned fields and your respective keys:
+    ```
+    DATABASE_PASSWORD
+    DATABASE_KEY
+    ```
+5. Start the server and react-script
    ```JS
    cd server
    node index.js
