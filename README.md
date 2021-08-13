@@ -98,7 +98,7 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/mannadamay12/weather-app.git
+   git clone https://github.com/Ishaan-10/Fintech-app.git
    ```
 2. Install NPM packages in client and server respectively
    ```sh
@@ -109,7 +109,8 @@ This is an example of how to list things you need to use the software and how to
    cd server
    npm install
    ```
-3. Start the server and react-script
+3. Add your env file in server directory.
+4. Start the server and react-script
    ```JS
    cd server
    node index.js
