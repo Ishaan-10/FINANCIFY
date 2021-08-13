@@ -1,6 +1,6 @@
 # Fintech-app
 
-<!-- [![Contributors][contributors-shield]][contributors-url] -->
+[![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
@@ -57,7 +57,7 @@
 <p>
     The idea is to help people view and study their overall spend analysis by developing a web app to analyze all the purchases. It is often noticed that we spend more than we     earn. This is a wrong practice. To address it and keep a record of all the spending and earnings, we have created Financify wherein users can keep a log of their finances       and manage them wisely. 
   </p>
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 
 
@@ -68,7 +68,10 @@ This section should list any major frameworks that you built your project using.
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
 * [Javascript](https://www.javascript.com)
-* [OpenWeatherMap API](https://openweathermap.org/)
+* [React Bootstrap](https://react-bootstrap.github.io/)
+* [React.js](https://reactjs.org/)
+* [Node.js](https://nodejs.org/en/)
+* [Mongo DB](https://www.mongodb.com/)
 
 
 
@@ -151,8 +154,8 @@ Distributed under the MIT License. See `LICENSE` for more information.-->
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-<!-- [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors -->
+<!-- [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge -->
+[contributors-url]: https://github.com/Ishaan-10/Fintech-app/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Ishaan-10/Fintech-app.svg?style=for-the-badge
 [forks-url]: https://github.com/Ishaan-10/Fintech-app/network/members
 [stars-shield]: https://img.shields.io/github/stars/Ishaan-10/Fintech-app.svg?style=for-the-badge
@@ -162,5 +165,5 @@ Distributed under the MIT License. See `LICENSE` for more information.-->
 <!-- [license-shield]: https://img.shields.io/github/license/Ishaan-10/Fintech-app.svg?style=for-the-badge
 [license-url]: https://github.com/Ishaan-10/Fintech-app/blob/master/LICENSE.txt -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/adamaymann7
-[product-screenshot]: client/src/images/landing.png
+<!-- [linkedin-url]: https://linkedin.com/in/adamaymann7
+[product-screenshot]: client/src/images/landing.png -->
