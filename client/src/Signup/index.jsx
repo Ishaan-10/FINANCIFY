@@ -4,6 +4,8 @@ import { signUp } from '../API';
 import { useHistory } from "react-router";
 import { Spinner } from "reactstrap";
 
+import img1 from "images/favicon.png";
+
 const Signup = () => {
 
   const [email,setEmail]=React.useState();
@@ -36,7 +38,7 @@ const Signup = () => {
       )}
       {!loading && <Container>
         <FormWrap>
-          <Icon to='/'>Financify</Icon>
+          <Icon to='/'><img src={img1} height="30px" width="30px"></img>Financify</Icon>
           <FormContent>
             <Form>
               <FormH1>Sign up for your account</FormH1>

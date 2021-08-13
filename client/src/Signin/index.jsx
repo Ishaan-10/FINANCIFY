@@ -16,6 +16,8 @@ import { useHistory } from "react-router";
 import { Spinner } from "reactstrap";
 import { Link } from "react-router-dom";
 
+import img1 from "images/favicon.png";
+
 const Signin = () => {
   const history = useHistory();
   const [email, setEmail] = React.useState();
@@ -49,7 +51,7 @@ const Signin = () => {
         {!loading && (
           <Container>
             <FormWrap>
-              <Icon to="/">Financify</Icon>
+              <Icon to="/"><img src={img1} height="30px" width="30px"></img>Financify</Icon>
               <FormContent>
                 <Form>
                   <FormH1>Sign in to your account</FormH1>

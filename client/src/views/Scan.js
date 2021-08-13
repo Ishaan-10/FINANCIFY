@@ -108,7 +108,7 @@ export default function Scan() {
           </Col>
           {five.map((one,index)=>{
             return (
-              <Col>
+              <Col style={{marginLeft: '1rem'}}>
               <Button className="btn-fill pull-right" variant="info"
               onClick={() =>{
                 setmodalNumber(one)
@@ -134,7 +134,7 @@ export default function Scan() {
             </div>
             </Card.Body>
           </Col>
-          <Col classname="pl-4" md="6">
+          <Col classname="pl-4" md="6" style={{marginLeft: '1rem'}}>
               {loading ? <Spinner /> : <div>
                 { confidence && <h5>Conversion accuracy = {confidence}%</h5>}
                 <p>{text}</p>

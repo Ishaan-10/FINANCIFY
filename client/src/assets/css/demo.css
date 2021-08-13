@@ -810,14 +810,14 @@
   flex: 1 1 auto;
 }
 
-.responsive{
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-}
-
 @media only screen and (max-width: 480px) {
   img {
     width: 100%;
+  }
+  .responsive{
+    width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: none;
   }
 }
