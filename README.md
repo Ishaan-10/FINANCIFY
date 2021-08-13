@@ -57,6 +57,7 @@
 <p>
     The idea is to help people view and study their overall spend analysis by developing a web app to analyze all the purchases. It is often noticed that we spend more than we     earn. This is a wrong practice. To address it and keep a record of all the spending and earnings, we have created Financify wherein users can keep a log of their finances       and manage them wisely. 
 </p>
+<img src="client/src/images/landing.png" alt="Logo" width="100" height="100">
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 <!-- Problem Statement -->
