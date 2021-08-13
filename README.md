@@ -17,7 +17,7 @@
   <h3 align="center">FINANCIFY</h3>
 
   <p align="center">
-    A web-app made using MERN stack which acts as a hub for all the transactions, subscriptions and goals a person wants to keep a track of. 
+    A web-app made using MERN stack which acts as a hub for all the transactions, subscriptions and goals a person wants to keep a track of. Record your transactions by just clicking a photo of the bill/receipt.
     <br />
   </p>
 </p>
@@ -69,30 +69,25 @@
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Javascript](https://www.javascript.com)
-* [React Bootstrap](https://react-bootstrap.github.io/)
 * [React.js](https://reactjs.org/)
 * [Node.js](https://nodejs.org/en/)
 * [Mongo DB](https://www.mongodb.com/)
+* [Bootstrap](https://getbootstrap.com)
+* [React Bootstrap](https://react-bootstrap.github.io/)
 
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is how you can access this project locally.
-To get a local copy up and running follow these simple example steps.
+This is how you can access this project locally.To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+
+* latest version of Node.js and NPM installed on your system
+* A .env file with environment variables
 
 ### Installation
 
@@ -129,9 +124,9 @@ This is an example of how to list things you need to use the software and how to
 
 
 <!-- ROADMAP -->
-## Roadmap
+<!-- ## Roadmap
 
-See the [open issues](https://github.com/Ishaan-10/Fintech-app/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/Ishaan-10/Fintech-app/issues) for a list of proposed features (and known issues). -->
 
 
 
@@ -156,25 +151,25 @@ Distributed under the MIT License. See `LICENSE` for more information.-->
 
 
 <!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
+<!-- ## Acknowledgements
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 * [Img Shields](https://shields.io)
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
+* [Font Awesome](https://fontawesome.com) -->
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Ishaan-10/Fintech-app.svg?style=for-the-badge
+<!-- [contributors-shield]: https://img.shields.io/github/contributors/Ishaan-10/Fintech-app.svg?style=for-the-badge
 [contributors-url]: https://github.com/Ishaan-10/Fintech-app/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Ishaan-10/Fintech-app.svg?style=for-the-badge
 [forks-url]: https://github.com/Ishaan-10/Fintech-app/network/members
 [stars-shield]: https://img.shields.io/github/stars/Ishaan-10/Fintech-app.svg?style=for-the-badge
 [stars-url]: https://github.com/Ishaan-10/Fintech-app/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Ishaan-10/Fintech-app.svg?style=for-the-badge
-[issues-url]: https://github.com/Ishaan-10/Fintech-app/issues
+[issues-shield]: https://img.shields.io/github/issues/Ishaan-10/Fintech-app.svg?style=for-the-badge -->
+<!-- [issues-url]: https://github.com/Ishaan-10/Fintech-app/issues -->
 <!-- [license-shield]: https://img.shields.io/github/license/Ishaan-10/Fintech-app.svg?style=for-the-badge
 [license-url]: https://github.com/Ishaan-10/Fintech-app/blob/master/LICENSE.txt -->
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+<!-- [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555 -->
 <!-- [linkedin-url]: https://linkedin.com/in/adamaymann7
 [product-screenshot]: client/src/images/landing.png -->
