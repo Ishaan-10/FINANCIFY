@@ -119,6 +119,7 @@ This is an example of how to list things you need to use the software and how to
    cd client
    npm start
    ```
+6. Head over to http://localhost:3000/ on your system and you are good to go
 
 
 
