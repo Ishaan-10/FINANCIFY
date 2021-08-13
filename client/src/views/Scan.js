@@ -134,7 +134,7 @@ export default function Scan() {
             </div>
             </Card.Body>
           </Col>
-          <Col classname="pl-4" md="6" style={{marginLeft: '1rem'}}>
+          <Col classname="pl-5" md="6" >
               {loading ? <Spinner /> : <div>
                 { confidence && <h5>Conversion accuracy = {confidence}%</h5>}
                 <p>{text}</p>
