@@ -20,6 +20,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+      <Route path='/' component={Home} exact />
       <Route path='/home' component={Home} exact />
       <Route path='/signin' component={SigninPage} exact />
       <Route path='/signup' component={SignupPage} exact />
