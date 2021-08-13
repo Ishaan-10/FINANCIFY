@@ -217,13 +217,6 @@ function Dashboard() {
                   </tbody>
                 </Table>
               </Card.Body>
-              <Card.Footer>
-                <hr></hr>
-                <div className="stats">
-                  <i className="fas fa-history"></i>
-                  Updated 3 minutes ago
-                </div>
-              </Card.Footer>
             </Card>
           </Col>
           <Col md="4">
@@ -248,15 +241,11 @@ function Dashboard() {
                 </div>
                 <div className="legend">
                   <i className="fas fa-circle text-info"></i>
-                  Open <i className="fas fa-circle text-danger"></i>
-                  Bounce <i className="fas fa-circle text-warning"></i>
-                  Unsubscribe
+                  Household <i className="fas fa-circle text-danger"></i>
+                  Electronics <i className="fas fa-circle text-warning"></i>
+                  Others
                 </div>
                 <hr></hr>
-                <div className="stats">
-                  <i className="far fa-clock"></i>
-                  Campaign sent 2 days ago
-                </div>
               </Card.Body>
             </Card>
 
@@ -283,13 +272,6 @@ function Dashboard() {
                   </Col>
                 </Row>
               </Card.Body>
-              <Card.Footer>
-                <hr></hr>
-                <div className="stats">
-                  <i className="fas fa-redo mr-1"></i>
-                  Update Now
-                </div>
-              </Card.Footer>
             </Card>
           </Col>
           <Col md="6">
