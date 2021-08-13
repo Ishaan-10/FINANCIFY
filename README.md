@@ -57,19 +57,11 @@
 <p>
     The idea is to help people view and study their overall spend analysis by developing a web app to analyze all the purchases. It is often noticed that we spend more than we     earn. This is a wrong practice. To address it and keep a record of all the spending and earnings, we have created Financify wherein users can keep a log of their finances       and manage them wisely. 
   </p>
-<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
- -->
 ### Built With
 
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
@@ -130,7 +122,7 @@ See the [open issues](https://github.com/Ishaan-10/Fintech-app/issues) for a lis
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+<!-- ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -139,7 +131,7 @@ Contributions are what make the open source community such an amazing place to b
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
+ -->
 
 
 <!-- LICENSE 
@@ -157,3 +149,18 @@ Distributed under the MIT License. See `LICENSE` for more information.-->
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
 
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+<!-- [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors -->
+[forks-shield]: https://img.shields.io/github/forks/mannadamay12/weather-app.svg?style=for-the-badge
+[forks-url]: https://github.com/mannadamay12/weather-app/network/members
+[stars-shield]: https://img.shields.io/github/stars/mannadamay12/weather-app.svg?style=for-the-badge
+[stars-url]: https://github.com/mannadamay12/weather-app/stargazers
+[issues-shield]: https://img.shields.io/github/issues/mannadamay12/weather-app.svg?style=for-the-badge
+[issues-url]: https://github.com/mannadamay12/weather-app/issues
+<!-- [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt -->
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/adamaymann7
+<!-- [product-screenshot]: images/screenshot.png -->
