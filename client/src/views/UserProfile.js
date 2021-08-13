@@ -25,6 +25,7 @@ function User() {
     await getIncome().then((res)=>{
       console.log(res.data)
       setData(res.data)
+      setPrevDate(data.salaryDate)
     }).catch(e=>console.log(e.message))
   }
   const fetchUserProfile=async()=>{
@@ -32,7 +33,6 @@ function User() {
       setProfileData(res.data)
     }).catch(e=>console.log(e.message))
   }
-
   // const updateUserProfile=async(name,email)=>{
   //   await updateProfile({name,email}).then((res)=>{
   //     console.log(res.data)
@@ -40,6 +40,7 @@ function User() {
   // }
   
   const postIncome=async(amount,salaryDate)=>{
+    console.log({amount,salaryDate})
     await createIncome({amount,salaryDate}).then((res)=>{
       console.log(res.data)
       fetchIncome()
@@ -129,7 +130,7 @@ function User() {
           <Col md="8">
             <Card>
               <Card.Header>
-                <Card.Title as="h4">Income Details </Card.Title>
+                <Card.Title as="h4">Income Details</Card.Title>
               </Card.Header>
               <Card.Body>
                 <Form>
@@ -150,7 +151,6 @@ function User() {
                         <label>Date at which you get your salary</label>
                         <Form.Control
                           placeholder="Date"
-                          defaultValue={moment(data.salaryDate).format("YYYY-MM-DD")}
                           type="date"
                           onChange={(e)=>setNewDate(e.target.value)}
                         ></Form.Control>

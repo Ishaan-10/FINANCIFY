@@ -5,6 +5,7 @@ import { getOverview } from "API";
 import OverviewGoalsRow from "components/OverviewGoalsRow";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+var moment = require('moment');
 
 // react-bootstrap components
 import {
@@ -38,6 +39,12 @@ function Dashboard() {
   });
 
   const [data, setData] = useState({});
+  const IncomeTime = moment(data.monthlyIncomeDate).format('DD') 
+  const TimeNow = moment().format('DD')
+  let diff = TimeNow-IncomeTime
+  if(diff<0){
+    diff = 30-(Math.abs((IncomeTime-TimeNow)))
+  }
 
   const getData = async () => {
     await getOverview().then(res => {
@@ -271,7 +278,7 @@ function Dashboard() {
                   </Col>
                   <Col xs="7">
                     <div className="numbers">
-                      <Card.Title as="h4">24:23:32:00</Card.Title>
+                      <Card.Title as="h4">{diff} Day(s) Left </Card.Title>
                     </div>
                   </Col>
                 </Row>
