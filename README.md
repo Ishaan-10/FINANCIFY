@@ -83,7 +83,6 @@ This is how you can access this project locally.To get a local copy up and runni
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 
 * latest version of Node.js and NPM installed on your system
 * A .env file with environment variables
