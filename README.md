@@ -83,7 +83,7 @@ This section should list any major frameworks that you built your project using.
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an how you can access this project locally.
+This is how you can access this project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
