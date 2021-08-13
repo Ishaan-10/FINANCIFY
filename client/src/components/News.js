@@ -24,7 +24,7 @@ export default function News() {
         <div class="card">
           <div class="card-horizontal">
             <div class="img-square-wrapper">
-              <img class="responsive" src={img1} alt="Card image cap" height="295" widht="380"></img>
+              <img class="responsive" src={img1} alt="Card image cap" height="295"></img>
             </div>
             <div class="card-body">
               <img class="responsive1" src={img3} height="125vh"></img>
@@ -42,7 +42,7 @@ export default function News() {
         <div class="card">
           <div class="card-horizontal">
             <div class="img-square-wrapper">
-              <img class="responsive" src={img2} alt="Card image cap" height="280" widht="280"></img>
+              <img class="responsive" src={img2} alt="Card image cap" height="280"></img>
             </div>
             <div class="card-body">
               <img class="responsive1" src={img4} height="85vh"></img>

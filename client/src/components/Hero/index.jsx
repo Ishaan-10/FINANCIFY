@@ -13,13 +13,19 @@ import {
 } from "./HeroElements";
 import { Button } from "../ButtonElements";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
+
 
 const Hero = () => {
+  const history = useHistory();
   const [hover, setHover] = useState(false);
 
   const onHover = () => {
     setHover(!hover);
   };
+  const redirectSignUp=()=>{
+    history.push("/signup");
+  }
 
   return (
     <HeroContainer id="home">
@@ -40,9 +46,10 @@ const Hero = () => {
                 smooth={true} 
                 duration={500} 
                 spy={true} 
+                onClick={redirectSignUp}
                 exact='true' 
                 offset={-80}>
-          <Link to="/signup" style={{color: "white"}}>Get Started </Link> 
+          Get Started
           {hover ? <ArrowForward /> : <ArrowRight/>}
           </Button>
         </HeroBtnWrapper>
