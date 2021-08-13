@@ -114,6 +114,7 @@ This is an example of how to list things you need to use the software and how to
     DATABASE_PASSWORD
     DATABASE_KEY
     ```
+    <img src="client/src/images/1.png" alt="db" height="50%" width="50%">
 5. Start the server and react-script
    ```JS
    cd server
