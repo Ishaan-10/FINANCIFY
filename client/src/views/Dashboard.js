@@ -194,7 +194,7 @@ function Dashboard() {
                       return (
                         <TransactionRow
                           key={index}
-                          sNo={index}
+                          sNo={index+1}
                           name={transaction.name}
                           amount={transaction.amount}
                           category={transaction.category}

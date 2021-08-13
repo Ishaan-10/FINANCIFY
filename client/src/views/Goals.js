@@ -133,7 +133,7 @@ function Maps() {
                     </Form.Group>
                   </Col>
                   <Col className="pl-1" md="5">
-                    <Form.Group>
+                    <Form.Group style={{marginLeft:"1rem"}}>
                       <label>Deadline</label>
                       <Form.Control
                         placeholder="Date"
@@ -156,7 +156,7 @@ function Maps() {
                     </Form.Group>
                   </Col>
                   <Col className="pl-1" md="5">
-                    <Form.Group>
+                    <Form.Group style={{marginLeft:"1rem"}}>
                       <label>Target Amount</label>
                       <Form.Control
                         placeholder="Goal amount"

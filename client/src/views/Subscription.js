@@ -142,7 +142,7 @@ function Typography() {
                     </Form.Group>
                   </Col>
                   <Col className="pl-1" md="5">
-                    <Form.Group>
+                    <Form.Group style={{marginLeft:"1rem"}}>
                       <label>Date</label>
                       <Form.Control
                         placeholder="Date"
@@ -151,7 +151,6 @@ function Typography() {
                       ></Form.Control>
                     </Form.Group>
                   </Col>
-
                 </Row>
                 <Row>
                   <Col className="pl-4" md="6">
@@ -166,7 +165,7 @@ function Typography() {
                     </Form.Group>
                   </Col>
                   <Col className="pl-1" md="5">
-                    <Form.Group>
+                    <Form.Group style={{marginLeft:"1rem"}}>
                       <label>Repeat Duration</label>
                       <Form.Control as="select"
                         onChange={(e) => setNewRepeatDuration(e.target.value)}
