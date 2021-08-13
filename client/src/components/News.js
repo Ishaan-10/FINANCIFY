@@ -4,6 +4,9 @@ import img1 from '../images/gadgets.jpeg'
 import img2 from '../images/cloth.jpg'
 import img3 from '../images/amazon.png'
 import img4 from '../images/flipkart.jpeg'
+
+import './../assets/css/demo.css'
+
 import {
     Badge,
     Button,
@@ -21,10 +24,10 @@ export default function News() {
         <div class="card">
           <div class="card-horizontal">
             <div class="img-square-wrapper">
-              <img class="" src={img1} alt="Card image cap" height="295" widht="380"></img>
+              <img class="responsive" src={img1} alt="Card image cap" height="295" widht="380"></img>
             </div>
             <div class="card-body">
-              <img src={img3} height="125px"></img>
+              <img class="responsive1" src={img3} height="125vh"></img>
               <hr></hr>
               <h4 class="card-title">50% savings on electronics</h4>
               <hr></hr>
@@ -39,10 +42,10 @@ export default function News() {
         <div class="card">
           <div class="card-horizontal">
             <div class="img-square-wrapper">
-              <img class="" src={img2} alt="Card image cap" height="280" widht="280"></img>
+              <img class="responsive" src={img2} alt="Card image cap" height="280" widht="280"></img>
             </div>
             <div class="card-body">
-              <img src={img4} height="85px"></img>
+              <img class="responsive1" src={img4} height="85vh"></img>
               <hr></hr>
               <h4 class="card-title">60% savings on clothing and footwear</h4>
               <hr></hr>
