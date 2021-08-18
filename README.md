@@ -16,7 +16,8 @@
   <h3 align="center">FINANCIFY</h3>
   
   <p align="center">
-  <a align="center" href="https://financify-zeta.netlify.app/">https://financify-zeta.netlify.app/</a>
+  <a align="center" href="https://financify-zeta.netlify.app/">https://financify-zeta.netlify.app/</a><br />
+  (Best experienced on Firefox Browser)
   <br />
     A web-app made using MERN stack which acts as a hub for all the transactions, subscriptions and goals a person wants to keep a track of. Record your transactions by just clicking a photo of the bill/receipt.
     <br />
