@@ -19,7 +19,8 @@
   <a align="center" href="https://financify-zeta.netlify.app/">https://financify-zeta.netlify.app/</a><br />
   (Best experienced on Firefox Browser)
   <br />
-    A web-app made using MERN stack which acts as a hub for all the transactions, subscriptions and goals a person wants to keep a track of. Record your transactions by just clicking a photo of the bill/receipt.
+    A web-app made using MERN stack which acts as a hub for all the transactions, subscriptions and goals one wants to keep a track of.
+    Record your transactions by just clicking a photo of the bill/receipt.
     <br />
   </p>
 </p>
@@ -57,7 +58,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <p>
-    The idea is to help people view and study their overall spend analysis by developing a web app to analyze all the purchases. It is often noticed that we spend more than we     earn. This is a wrong practice. To address it and keep a record of all the spending and earnings, we have created Financify wherein users can keep a log of their finances       and manage them wisely. 
+    The idea is to help people view and study their overall spend analysis by developing a web app to analyze all the purchases. It is often noticed that we spend more than we     earn which is wrong. To address it and keep a record of all the spending and earnings, we have created Financify wherein users can keep a log of their finances and manage them wisely. 
 </p>
 <img src="client/src/images/landing.png" alt="Logo" width="100%" height="100%">
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
@@ -120,7 +121,7 @@ This is how you can access this project locally.To get a local copy up and runni
    cd client
    npm start
    ```
-6. Head over to http://localhost:3000/ on your system and you are good to go
+6. Head over to http://localhost:3000/ on your system and you are good to go.
 
 
 
@@ -141,7 +142,7 @@ Contributions are what make the open source community such an amazing place to b
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+5. Open a Pull Request.
  -->
 
 
